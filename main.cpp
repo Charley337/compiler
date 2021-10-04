@@ -11,6 +11,7 @@ int main(int argc, char **argv) {
 
     Lexer lex(argv[1]);
 
+    // 输出token文件
     printf("try to open token.txt\n");
     FILE *fp = fopen("token.txt", "w");
     if (fp == NULL) {
@@ -19,7 +20,7 @@ int main(int argc, char **argv) {
     }
     int i = 1;
     for (vector<token>::iterator ite = lex.token_list.begin(); ite != lex.token_list.end(); ite++) {
-        fprintf(fp, "(%2d, %s)\n", ite->typecode, ite->value);
+        fprintf(fp, "(%d,%s)\n", ite->typecode, ite->value);
         printf("it has already written [%d]\r", i);
         i++;
     }
@@ -27,15 +28,16 @@ int main(int argc, char **argv) {
     fclose(fp);
     printf("close token.txt\n");
 
-    printf("try to open symbol_table.txt\n");
-    fp = fopen("symbol_table.txt", "w");
+    // 输出symbolTable.txt文件
+    printf("try to open symbolTable.txt\n");
+    fp = fopen("symbolTable.txt", "w");
     if (fp == NULL) {
         printf(FONT_RED FONT_HIGHLIGHT"fail to open symbol_table.txt\n"RESET_STYLE);
         exit(0);
     }
     i = 1;
     for (map<string, symbol>::iterator ite = lex.symbol_table.begin(); ite != lex.symbol_table.end(); ite++) {
-        fprintf(fp, "(%s, %d, %d)\n", ite->second.name, ite->second.type, ite->second.offset);
+        fprintf(fp, "(%s,-1,?)\n", ite->second.name);
         printf("it has already written [%d]\r", i);
         i++;
     }

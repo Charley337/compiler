@@ -12,6 +12,9 @@
 
 using namespace std;
 
+#define TOKEN_EOF -1
+#define TOKEN_ERROR -2
+
 typedef struct symbol {
     char *name;
     int type;
@@ -66,6 +69,15 @@ public:
     // 判断是不是字母
     static bool isalpha(char ch);
 
+    // 判断是不是十六进制
+    bool ishex(char ch);
+
+    // 判断是不是八进制
+    bool isoctal(char ch);
+
+    // 判断是不是二进制
+    bool isbinary(char ch);
+
     // 判断是否为关键字
     bool iskeyword(char *tkn);
 
@@ -74,6 +86,9 @@ public:
 
     // 插入符号表
     void symboltable_insert(char *name);
+
+    // token 错误处理
+    token error_handler();
 
 private:
     // 把截取的token复制出来

@@ -72,5 +72,5 @@
 lexer # 源文件路径    例如: lexer src_file.c
 ```
 
-结果输出 token.txt 和 symbol_table.txt 两个文件。
+结果输出 token.txt 和 symbolTable.txt 两个文件。
 

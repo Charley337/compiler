@@ -83,6 +83,9 @@ void Lexer::init_code_list() {
     code_list.insert(map<string, int>::value_type("#", 69));
     code_list.insert(map<string, int>::value_type("define", 70));
     code_list.insert(map<string, int>::value_type("typedef", 71));
+    code_list.insert(map<string, int>::value_type("const_number_2", 72));
+    code_list.insert(map<string, int>::value_type("const_number_8", 73));
+    code_list.insert(map<string, int>::value_type("const_number_16", 74));
 }
 
 void Lexer::init_keywords_set() {
@@ -120,7 +123,7 @@ void Lexer::init_keywords_set() {
 
 void Lexer::init_token_list() {
     token t = token_scan();
-    while (t.typecode != -1) {
+    while (t.typecode != TOKEN_EOF) {
         token_list.push_back(t);
         t = token_scan();
     }
@@ -172,6 +175,42 @@ bool Lexer::isdigit(char ch) {
     }
 }
 
+// 判断是不是十六进制
+bool Lexer::ishex(char ch) {
+    if (isdigit(ch)) {
+        return true;
+    }
+    else if (ch >= 65 && ch <= 70) {
+        return true;
+    }
+    else if (ch >= 97 && ch <= 102) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+// 判断是不是八进制
+bool Lexer::isoctal(char ch) {
+    if (ch >= 48 && ch <= 55) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+// 判断是不是二进制
+bool Lexer::isbinary(char ch) {
+    if (ch == '0' || ch == '1') {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 // 把截取的token复制出来
 char* Lexer::copytoken() {
     int len = fbuf_forward - fbuf_beginning;
@@ -215,6 +254,15 @@ void Lexer::symboltable_insert(char *name) {
     }
 }
 
+// token 错误处理程序
+token Lexer::error_handler() {
+    char *tkn = copytoken();
+    token res;
+    res.typecode = TOKEN_ERROR;
+    res.value = tkn;
+    return res;
+}
+
 // 自动机获取token
 token Lexer::token_scan() {
     char ch;
@@ -227,16 +275,15 @@ token Lexer::token_scan() {
         fbuf_beginning++;
     }
     if (ch == '\0') {
-        fbuf_forward -= 1;
-        res.typecode = -1;
-        return res;
+        fbuf_forward--;
+        res.typecode = TOKEN_EOF;
     }
-    if (isalpha(ch)) {
+    else if (isalpha(ch)) {
         ch = getch();
         while (isalpha(ch) || isdigit(ch)) {
             ch = getch();
         }
-        fbuf_forward -= 1;
+        fbuf_forward--;
         tkn = copytoken();
         if (iskeyword(tkn)) {
             // 如果是关键字
@@ -250,18 +297,60 @@ token Lexer::token_scan() {
             // 插入符号表中去
             symboltable_insert(tkn);
         }
-        return res;
     }
     else if (isdigit(ch)) {
-        ch = getch();
-        while (isdigit(ch)) {
+        if (ch == '0') {
+            // 判断是否是其他进制
             ch = getch();
+            if (ch == 'x' || ch == 'X') {
+                // 16进制
+                ch = getch();
+                while (ishex(ch)) {
+                    ch = getch();
+                }
+                fbuf_forward--;
+                tkn = copytoken();
+                res.typecode = code_list.find("const_number_16")->second;
+                res.value = tkn;
+            }
+            else if (ch == 'b' || ch == 'B') {
+                // 2进制
+                ch = getch();
+                while (isbinary(ch)) {
+                    ch = getch();
+                }
+                fbuf_forward--;
+                tkn = copytoken();
+                res.typecode = code_list.find("const_number_2")->second;
+                res.value = tkn;
+            }
+            else if (isoctal(ch)) {
+                // 八进制
+                ch = getch();
+                while (isoctal(ch)) {
+                    ch = getch();
+                }
+                fbuf_forward--;
+                tkn = copytoken();
+                res.typecode = code_list.find("const_number_8")->second;
+                res.value = tkn;
+            }
+            else {
+                // 错误处理
+                res = error_handler();
+            }
         }
-        fbuf_forward -= 1;
-        tkn = copytoken();
-        res.typecode = code_list.find("const_number")->second;
-        res.value = tkn;
-        return res;
+        else {
+            // 否则是十进制
+            ch = getch();
+            while (isdigit(ch)) {
+                ch = getch();
+            }
+            fbuf_forward--;
+            tkn = copytoken();
+            res.typecode = code_list.find("const_number")->second;
+            res.value = tkn;
+        }
     }
     else {
         switch(ch) {
@@ -278,12 +367,11 @@ token Lexer::token_scan() {
                 res.value = tkn;
             }
             else {
-                fbuf_forward -= 1;
+                fbuf_forward--;
                 tkn = copytoken();
                 res.typecode = code_list.find("*")->second;
                 res.value = tkn;
             }
-            return res;
             break;
         case '=': 
             ch = getch();
@@ -293,12 +381,11 @@ token Lexer::token_scan() {
                 res.value = tkn;
             }
             else {
-                fbuf_forward -= 1;
+                fbuf_forward--;
                 tkn = copytoken();
                 res.typecode = code_list.find("=")->second;
                 res.value = tkn;
             }
-            return res;
             break;
         case '"': 
             ch = getch();
@@ -308,25 +395,21 @@ token Lexer::token_scan() {
             tkn = copytoken();
             res.typecode = code_list.find("const_string")->second;
             res.value = tkn;
-            return res;
             break;
         case '(': 
             tkn = copytoken();
             res.typecode = code_list.find("(")->second;
             res.value = tkn;
-            return res;
             break;
         case ')': 
             tkn = copytoken();
             res.typecode = code_list.find(")")->second;
             res.value = tkn;
-            return res;
             break;
         case ':': 
             tkn = copytoken();
             res.typecode = code_list.find(":")->second;
             res.value = tkn;
-            return res;
             break;
         case '+': 
             ch = getch();
@@ -341,12 +424,11 @@ token Lexer::token_scan() {
                 res.value = tkn;
             }
             else {
-                fbuf_forward -= 1;
+                fbuf_forward--;
                 tkn = copytoken();
                 res.typecode = code_list.find("+")->second;
                 res.value = tkn;
             }
-            return res;
             break;
         case '-': 
             ch = getch();
@@ -361,12 +443,11 @@ token Lexer::token_scan() {
                 res.value = tkn;
             }
             else {
-                fbuf_forward -= 1;
+                fbuf_forward--;
                 tkn = copytoken();
                 res.typecode = code_list.find("-")->second;
                 res.value = tkn;
             }
-            return res;
             break;
         case '/': 
             ch = getch();
@@ -376,42 +457,37 @@ token Lexer::token_scan() {
                 res.value = tkn;
             }
             else {
-                fbuf_forward -= 1;
+                fbuf_forward--;
                 tkn = copytoken();
                 res.typecode = code_list.find("/")->second;
                 res.value = tkn;
             }
-            return res;
             break;
         case ',': 
             tkn = copytoken();
             res.typecode = code_list.find(",")->second;
             res.value = tkn;
-            return res;
             break;
         case '{': 
             tkn = copytoken();
             res.typecode = code_list.find("{")->second;
             res.value = tkn;
-            return res;
             break;
         case '}': 
             tkn = copytoken();
             res.typecode = code_list.find("}")->second;
             res.value = tkn;
-            return res;
             break;
         case ';': 
             tkn = copytoken();
             res.typecode = code_list.find(";")->second;
             res.value = tkn;
-            return res;
             break;
         default:
-            printf(FONT_RED FONT_HIGHLIGHT "unknown ch!\n"RESET_STYLE);
-            exit(0);
-            return res;
+            // 错误处理
+            res = error_handler();
             break;
         }
     }
+    return res;
 }
