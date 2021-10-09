@@ -90,6 +90,9 @@ public:
     // token 错误处理
     token error_handler();
 
+    // 输出token.txt和symbolList.txt文件
+    void output_files();
+
 private:
     // 把截取的token复制出来
     char* copytoken();

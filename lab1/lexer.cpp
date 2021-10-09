@@ -491,3 +491,40 @@ token Lexer::token_scan() {
     }
     return res;
 }
+
+
+void Lexer::output_files() {
+    // 输出token文件
+    printf("lexer: try to open token.txt\n");
+    FILE *fp = fopen("token.txt", "w");
+    if (fp == NULL) {
+        printf(FONT_RED FONT_HIGHLIGHT"lexer: fail to open token.txt\n"RESET_STYLE);
+        exit(0);
+    }
+    int i = 1;
+    for (vector<token>::iterator ite = token_list.begin(); ite != token_list.end(); ite++) {
+        fprintf(fp, "(%d,%s)\n", ite->typecode, ite->value);
+        printf("lexer: it has already written [%d]\r", i);
+        i++;
+    }
+    printf("\n");
+    fclose(fp);
+    printf("lexer: close token.txt\n");
+
+    // 输出symbolTable.txt文件
+    printf("lexer: try to open symbolTable.txt\n");
+    fp = fopen("symbolTable.txt", "w");
+    if (fp == NULL) {
+        printf(FONT_RED FONT_HIGHLIGHT"lexer: fail to open symbol_table.txt\n"RESET_STYLE);
+        exit(0);
+    }
+    i = 1;
+    for (map<string, symbol>::iterator ite = symbol_table.begin(); ite != symbol_table.end(); ite++) {
+        fprintf(fp, "(%s,-1,?)\n", ite->second.name);
+        printf("lexer: it has already written [%d]\r", i);
+        i++;
+    }
+    printf("\n");
+    fclose(fp);
+    printf("lexer: close symbol_table.txt\n");
+}
