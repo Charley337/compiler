@@ -1,0 +1,20 @@
+[非终结符]
+S A B C S'
+[终结符]
++ = - * / % ( ) ID INT_NUM int
+[文法起始符]
+E'
+[生成式]
+E' -> S';
+S' -> int ID;
+S' -> ID = S;
+S -> S + A;
+S -> S - A;
+S -> A;
+A -> A * B;
+A -> A / B;
+A -> A % B;
+A -> B;
+B -> ( S );
+B -> ID;
+B -> INT_NUM;

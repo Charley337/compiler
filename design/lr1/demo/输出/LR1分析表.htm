@@ -1,0 +1,1678 @@
+<html>
+<head>
+<title>LR1分析表</title>
+</head>
+<body>
+<p align="center">LR1分析表</p>
+<table border="1">
+<tr>
+<td rowspan="2" nowrap><p align="center">状态</p></td>
+<td colspan="12" nowrap><p align="center">ACTION</p></td>
+<td colspan="5" nowrap><p align="center">GOTO</p></td>
+</tr>
+<tr>
+<td nowrap>+</td>
+<td nowrap>=</td>
+<td nowrap>-</td>
+<td nowrap>*</td>
+<td nowrap>/</td>
+<td nowrap>%</td>
+<td nowrap>(</td>
+<td nowrap>)</td>
+<td nowrap>ID</td>
+<td nowrap>INT_NUM</td>
+<td nowrap>int</td>
+<td nowrap>$</td>
+<td nowrap>S</td>
+<td nowrap>A</td>
+<td nowrap>B</td>
+<td nowrap>C</td>
+<td nowrap>S'</td>
+</tr>
+<tr>
+<td nowrap>0</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;2</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;3</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>1</td>
+</tr>
+<tr>
+<td nowrap>1</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>accept</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>2</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;4</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>3</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;5</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>4</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;9</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;10</td>
+<td nowrap>shift&nbsp;11</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>6</td>
+<td nowrap>7</td>
+<td nowrap>8</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>5</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S'&nbsp;->&nbsp;int&nbsp;ID</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>6</td>
+<td nowrap>shift&nbsp;12</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;13</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S'&nbsp;->&nbsp;ID&nbsp;=&nbsp;S</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>7</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;A</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;A</td>
+<td nowrap>shift&nbsp;14</td>
+<td nowrap>shift&nbsp;15</td>
+<td nowrap>shift&nbsp;16</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;A</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>8</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>9</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;20</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;21</td>
+<td nowrap>shift&nbsp;22</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>17</td>
+<td nowrap>18</td>
+<td nowrap>19</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>10</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;ID</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;ID</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;ID</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;ID</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;ID</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;ID</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>11</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;INT_NUM</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;INT_NUM</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;INT_NUM</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;INT_NUM</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;INT_NUM</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;INT_NUM</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>12</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;9</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;10</td>
+<td nowrap>shift&nbsp;11</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>23</td>
+<td nowrap>8</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>13</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;9</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;10</td>
+<td nowrap>shift&nbsp;11</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>24</td>
+<td nowrap>8</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>14</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;9</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;10</td>
+<td nowrap>shift&nbsp;11</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>25</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>15</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;9</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;10</td>
+<td nowrap>shift&nbsp;11</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>26</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>16</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;9</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;10</td>
+<td nowrap>shift&nbsp;11</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>27</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>17</td>
+<td nowrap>shift&nbsp;28</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;29</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;30</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>18</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;A</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;A</td>
+<td nowrap>shift&nbsp;31</td>
+<td nowrap>shift&nbsp;32</td>
+<td nowrap>shift&nbsp;33</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;A</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>19</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>20</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;20</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;21</td>
+<td nowrap>shift&nbsp;22</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>34</td>
+<td nowrap>18</td>
+<td nowrap>19</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>21</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;ID</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;ID</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;ID</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;ID</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;ID</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;ID</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>22</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;INT_NUM</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;INT_NUM</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;INT_NUM</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;INT_NUM</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;INT_NUM</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;INT_NUM</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>23</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;S&nbsp;+&nbsp;A</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;S&nbsp;+&nbsp;A</td>
+<td nowrap>shift&nbsp;14</td>
+<td nowrap>shift&nbsp;15</td>
+<td nowrap>shift&nbsp;16</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;S&nbsp;+&nbsp;A</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>24</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;S&nbsp;-&nbsp;A</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;S&nbsp;-&nbsp;A</td>
+<td nowrap>shift&nbsp;14</td>
+<td nowrap>shift&nbsp;15</td>
+<td nowrap>shift&nbsp;16</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;S&nbsp;-&nbsp;A</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>25</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;*&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;*&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;*&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;*&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;*&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;*&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>26</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;/&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;/&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;/&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;/&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;/&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;/&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>27</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;%&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;%&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;%&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;%&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;%&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;%&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>28</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;20</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;21</td>
+<td nowrap>shift&nbsp;22</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>35</td>
+<td nowrap>19</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>29</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;20</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;21</td>
+<td nowrap>shift&nbsp;22</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>36</td>
+<td nowrap>19</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>30</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;(&nbsp;S&nbsp;)</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;(&nbsp;S&nbsp;)</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;(&nbsp;S&nbsp;)</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;(&nbsp;S&nbsp;)</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;(&nbsp;S&nbsp;)</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;(&nbsp;S&nbsp;)</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>31</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;20</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;21</td>
+<td nowrap>shift&nbsp;22</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>37</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>32</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;20</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;21</td>
+<td nowrap>shift&nbsp;22</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>38</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>33</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;20</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;21</td>
+<td nowrap>shift&nbsp;22</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>39</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>34</td>
+<td nowrap>shift&nbsp;28</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;29</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>shift&nbsp;40</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>35</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;S&nbsp;+&nbsp;A</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;S&nbsp;+&nbsp;A</td>
+<td nowrap>shift&nbsp;31</td>
+<td nowrap>shift&nbsp;32</td>
+<td nowrap>shift&nbsp;33</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;S&nbsp;+&nbsp;A</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>36</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;S&nbsp;-&nbsp;A</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;S&nbsp;-&nbsp;A</td>
+<td nowrap>shift&nbsp;31</td>
+<td nowrap>shift&nbsp;32</td>
+<td nowrap>shift&nbsp;33</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;S&nbsp;->&nbsp;S&nbsp;-&nbsp;A</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>37</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;*&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;*&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;*&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;*&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;*&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;*&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>38</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;/&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;/&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;/&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;/&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;/&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;/&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>39</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;%&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;%&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;%&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;%&nbsp;B</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;%&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;A&nbsp;->&nbsp;A&nbsp;%&nbsp;B</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+<tr>
+<td nowrap>40</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;(&nbsp;S&nbsp;)</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;(&nbsp;S&nbsp;)</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;(&nbsp;S&nbsp;)</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;(&nbsp;S&nbsp;)</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;(&nbsp;S&nbsp;)</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>reduce&nbsp;B&nbsp;->&nbsp;(&nbsp;S&nbsp;)</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+<td nowrap>&nbsp;</td>
+</tr>
+</table>
+<br>
+<br>
+项目集规范族：<br>
+<br>
+I0:<br>
+E'&nbsp;->&nbsp;.&nbsp;S'&nbsp;,&nbsp;$<br>
+S'&nbsp;->&nbsp;.&nbsp;int&nbsp;ID&nbsp;,&nbsp;$<br>
+S'&nbsp;->&nbsp;.&nbsp;ID&nbsp;=&nbsp;S&nbsp;,&nbsp;$<br>
+<br>
+I1:<br>
+E'&nbsp;->&nbsp;S'&nbsp;.&nbsp;,&nbsp;$<br>
+<br>
+I2:<br>
+S'&nbsp;->&nbsp;ID&nbsp;.&nbsp;=&nbsp;S&nbsp;,&nbsp;$<br>
+<br>
+I3:<br>
+S'&nbsp;->&nbsp;int&nbsp;.&nbsp;ID&nbsp;,&nbsp;$<br>
+<br>
+I4:<br>
+S'&nbsp;->&nbsp;ID&nbsp;=&nbsp;.&nbsp;S&nbsp;,&nbsp;$<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;+&nbsp;A&nbsp;,&nbsp;$<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;-&nbsp;A&nbsp;,&nbsp;$<br>
+S&nbsp;->&nbsp;.&nbsp;A&nbsp;,&nbsp;$<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;+&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;-&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;.&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;+&nbsp;A&nbsp;,&nbsp;-<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;-&nbsp;A&nbsp;,&nbsp;-<br>
+S&nbsp;->&nbsp;.&nbsp;A&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I5:<br>
+S'&nbsp;->&nbsp;int&nbsp;ID&nbsp;.&nbsp;,&nbsp;$<br>
+<br>
+I6:<br>
+S'&nbsp;->&nbsp;ID&nbsp;=&nbsp;S&nbsp;.&nbsp;,&nbsp;$<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;+&nbsp;A&nbsp;,&nbsp;$<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;-&nbsp;A&nbsp;,&nbsp;$<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;+&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;-&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;+&nbsp;A&nbsp;,&nbsp;-<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;-&nbsp;A&nbsp;,&nbsp;-<br>
+<br>
+I7:<br>
+S&nbsp;->&nbsp;A&nbsp;.&nbsp;,&nbsp;$<br>
+S&nbsp;->&nbsp;A&nbsp;.&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;A&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+<br>
+I8:<br>
+A&nbsp;->&nbsp;B&nbsp;.&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;B&nbsp;.&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;B&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;B&nbsp;.&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;B&nbsp;.&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;B&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I9:<br>
+B&nbsp;->&nbsp;(&nbsp;.&nbsp;S&nbsp;)&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;(&nbsp;.&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;(&nbsp;.&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;(&nbsp;.&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;(&nbsp;.&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;(&nbsp;.&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;+&nbsp;A&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;-&nbsp;A&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;.&nbsp;A&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;+&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;-&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;.&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;+&nbsp;A&nbsp;,&nbsp;-<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;-&nbsp;A&nbsp;,&nbsp;-<br>
+S&nbsp;->&nbsp;.&nbsp;A&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I10:<br>
+B&nbsp;->&nbsp;ID&nbsp;.&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;ID&nbsp;.&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;ID&nbsp;.&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;ID&nbsp;.&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;ID&nbsp;.&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;ID&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I11:<br>
+B&nbsp;->&nbsp;INT_NUM&nbsp;.&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;INT_NUM&nbsp;.&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;INT_NUM&nbsp;.&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;INT_NUM&nbsp;.&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;INT_NUM&nbsp;.&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;INT_NUM&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I12:<br>
+S&nbsp;->&nbsp;S&nbsp;+&nbsp;.&nbsp;A&nbsp;,&nbsp;$<br>
+S&nbsp;->&nbsp;S&nbsp;+&nbsp;.&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;+&nbsp;.&nbsp;A&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I13:<br>
+S&nbsp;->&nbsp;S&nbsp;-&nbsp;.&nbsp;A&nbsp;,&nbsp;$<br>
+S&nbsp;->&nbsp;S&nbsp;-&nbsp;.&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;-&nbsp;.&nbsp;A&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I14:<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;.&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I15:<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;.&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I16:<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;.&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I17:<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;.&nbsp;)&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;.&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;.&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;.&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;.&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;.&nbsp;)&nbsp;,&nbsp;%<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;+&nbsp;A&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;-&nbsp;A&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;+&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;-&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;+&nbsp;A&nbsp;,&nbsp;-<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;-&nbsp;A&nbsp;,&nbsp;-<br>
+<br>
+I18:<br>
+S&nbsp;->&nbsp;A&nbsp;.&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;A&nbsp;.&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;A&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+<br>
+I19:<br>
+A&nbsp;->&nbsp;B&nbsp;.&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;B&nbsp;.&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;B&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;B&nbsp;.&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;B&nbsp;.&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;B&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I20:<br>
+B&nbsp;->&nbsp;(&nbsp;.&nbsp;S&nbsp;)&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;(&nbsp;.&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;(&nbsp;.&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;(&nbsp;.&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;(&nbsp;.&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;(&nbsp;.&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;+&nbsp;A&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;-&nbsp;A&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;.&nbsp;A&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;+&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;-&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;.&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;+&nbsp;A&nbsp;,&nbsp;-<br>
+S&nbsp;->&nbsp;.&nbsp;S&nbsp;-&nbsp;A&nbsp;,&nbsp;-<br>
+S&nbsp;->&nbsp;.&nbsp;A&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I21:<br>
+B&nbsp;->&nbsp;ID&nbsp;.&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;ID&nbsp;.&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;ID&nbsp;.&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;ID&nbsp;.&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;ID&nbsp;.&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;ID&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I22:<br>
+B&nbsp;->&nbsp;INT_NUM&nbsp;.&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;INT_NUM&nbsp;.&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;INT_NUM&nbsp;.&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;INT_NUM&nbsp;.&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;INT_NUM&nbsp;.&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;INT_NUM&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I23:<br>
+S&nbsp;->&nbsp;S&nbsp;+&nbsp;A&nbsp;.&nbsp;,&nbsp;$<br>
+S&nbsp;->&nbsp;S&nbsp;+&nbsp;A&nbsp;.&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;+&nbsp;A&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+<br>
+I24:<br>
+S&nbsp;->&nbsp;S&nbsp;-&nbsp;A&nbsp;.&nbsp;,&nbsp;$<br>
+S&nbsp;->&nbsp;S&nbsp;-&nbsp;A&nbsp;.&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;-&nbsp;A&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+<br>
+I25:<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;B&nbsp;.&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;B&nbsp;.&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;B&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;B&nbsp;.&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;B&nbsp;.&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;B&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I26:<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;B&nbsp;.&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;B&nbsp;.&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;B&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;B&nbsp;.&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;B&nbsp;.&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;B&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I27:<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;B&nbsp;.&nbsp;,&nbsp;$<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;B&nbsp;.&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;B&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;B&nbsp;.&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;B&nbsp;.&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;B&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I28:<br>
+S&nbsp;->&nbsp;S&nbsp;+&nbsp;.&nbsp;A&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;S&nbsp;+&nbsp;.&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;+&nbsp;.&nbsp;A&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I29:<br>
+S&nbsp;->&nbsp;S&nbsp;-&nbsp;.&nbsp;A&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;S&nbsp;-&nbsp;.&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;-&nbsp;.&nbsp;A&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;A&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I30:<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;)&nbsp;.&nbsp;,&nbsp;$<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;)&nbsp;.&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;)&nbsp;.&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;)&nbsp;.&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;)&nbsp;.&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;)&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I31:<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;.&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I32:<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;.&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I33:<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;.&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;.&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;.&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;.&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;.&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;.&nbsp;B&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;.&nbsp;(&nbsp;S&nbsp;)&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;ID&nbsp;,&nbsp;%<br>
+B&nbsp;->&nbsp;.&nbsp;INT_NUM&nbsp;,&nbsp;%<br>
+<br>
+I34:<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;.&nbsp;)&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;.&nbsp;)&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;.&nbsp;)&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;.&nbsp;)&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;.&nbsp;)&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;.&nbsp;)&nbsp;,&nbsp;%<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;+&nbsp;A&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;-&nbsp;A&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;+&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;-&nbsp;A&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;+&nbsp;A&nbsp;,&nbsp;-<br>
+S&nbsp;->&nbsp;S&nbsp;.&nbsp;-&nbsp;A&nbsp;,&nbsp;-<br>
+<br>
+I35:<br>
+S&nbsp;->&nbsp;S&nbsp;+&nbsp;A&nbsp;.&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;S&nbsp;+&nbsp;A&nbsp;.&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;+&nbsp;A&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+<br>
+I36:<br>
+S&nbsp;->&nbsp;S&nbsp;-&nbsp;A&nbsp;.&nbsp;,&nbsp;)<br>
+S&nbsp;->&nbsp;S&nbsp;-&nbsp;A&nbsp;.&nbsp;,&nbsp;+<br>
+S&nbsp;->&nbsp;S&nbsp;-&nbsp;A&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;*&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;/&nbsp;B&nbsp;,&nbsp;%<br>
+A&nbsp;->&nbsp;A&nbsp;.&nbsp;%&nbsp;B&nbsp;,&nbsp;%<br>
+<br>
+I37:<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;B&nbsp;.&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;B&nbsp;.&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;B&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;B&nbsp;.&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;B&nbsp;.&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;*&nbsp;B&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I38:<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;B&nbsp;.&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;B&nbsp;.&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;B&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;B&nbsp;.&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;B&nbsp;.&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;/&nbsp;B&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I39:<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;B&nbsp;.&nbsp;,&nbsp;)<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;B&nbsp;.&nbsp;,&nbsp;+<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;B&nbsp;.&nbsp;,&nbsp;-<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;B&nbsp;.&nbsp;,&nbsp;*<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;B&nbsp;.&nbsp;,&nbsp;/<br>
+A&nbsp;->&nbsp;A&nbsp;%&nbsp;B&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+I40:<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;)&nbsp;.&nbsp;,&nbsp;)<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;)&nbsp;.&nbsp;,&nbsp;+<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;)&nbsp;.&nbsp;,&nbsp;-<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;)&nbsp;.&nbsp;,&nbsp;*<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;)&nbsp;.&nbsp;,&nbsp;/<br>
+B&nbsp;->&nbsp;(&nbsp;S&nbsp;)&nbsp;.&nbsp;,&nbsp;%<br>
+<br>
+</body>
+</html>
