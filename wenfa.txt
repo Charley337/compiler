@@ -1,0 +1,13 @@
+E' -> S'
+S' -> int ID
+S' -> ID = S
+S -> S + A
+S -> S - A
+S -> A
+A -> A * B
+A -> A / B
+A -> A % B
+A -> B
+B -> ( S )
+B -> ID
+B -> INT_NUM

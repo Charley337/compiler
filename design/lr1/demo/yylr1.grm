@@ -1,7 +1,7 @@
 [非终结符]
 S A B C S'
 [终结符]
-+ = - * / % ( ) ID INT_NUM int
++ = - * / % ( ) ID INT_NUM int 
 [文法起始符]
 E'
 [生成式]

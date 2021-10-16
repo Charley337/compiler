@@ -5,11 +5,13 @@
 #include <stdio.h>
 #include <map>
 #include <stack>
+#include <string.h>
+#include "cmd_font_style.h"
 
 using namespace std;
 
-#define AT_COL_ACTION 0
-#define AT_COL_GOTO 1
+#define AT_TABLE_ACTION 0
+#define AT_TABLE_GOTO 1
 
 #define AT_TYPE_SHIFT 0
 #define AT_TYPE_REDUCE 1
@@ -17,9 +19,13 @@ using namespace std;
 #define AT_TYPE_GOTO 3
 
 typedef struct ATindex {
-    int col;
+    int table;
     int state;
     char *symbol;
+
+    bool operator < (const ATindex &o) const {
+		return table < o.table || (table == o.table && state < o.state) || (table == o.table && state == o.state && strcmp(symbol, o.symbol) < 0);
+	}
 }ATindex;
 
 typedef struct ATval {
@@ -27,10 +33,26 @@ typedef struct ATval {
     int val;
 }ATval;
 
+typedef struct RowCol {
+    int row;
+    int col;
+
+    bool operator < (const RowCol &o) const {
+		return row < o.row || (row == o.row && col < o.col);
+	}
+}RowCol;
+
 class LR1Analyser {
 public:
+    // LR1.csv 转化过来的中间数据结构
+    map<RowCol, char*> lr1_table;
+
     // 分析表
     map<ATindex, ATval> analyse_table;
+
+    // 文法表
+    char **grammar_list;
+    int grammar_list_len;
 
     // 状态栈
     stack<int> state_stack;
@@ -45,6 +67,18 @@ public:
 
     // 分析表初始化
     void at_init();
+
+    // 文法表初始化
+    void grammar_list_init();
+
+    // 从缓冲区中读出一行，如果成功返回1，读到缓冲区末尾返回0
+    static int get_line(char *line, char *buffer, int *bp);
+
+    // 从一行中取出列值
+    static int get_value(char *val, char *line, int *lp);
+
+    // 从类似 shift 10 中取出数字
+    static int get_digit_from_value(char *val);
 
 private:
 
