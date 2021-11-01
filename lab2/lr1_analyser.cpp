@@ -1,9 +1,11 @@
 #include "lr1_analyser.h"
 
-LR1Analyser::LR1Analyser() {
+LR1Analyser::LR1Analyser(Lexer *le) {
     at_init();
     grammar_list_init();
     stack_init();
+    lex = le;
+    token_it = lex->token_list.begin();
 }
 
 
@@ -242,3 +244,137 @@ void LR1Analyser::grammar_list_init() {
     free(buffer);
     free(line);
 }
+
+void LR1Analyser::lr1_start() {
+    // always action, until accept
+    while (token_it != lex->token_list.end()) {
+        // printf("(%d, %s)\n", token_it->typecode, token_it->value);
+        shift_action();
+        token_it++;
+    }
+}
+
+void LR1Analyser::shift_action() {
+    char *sym;
+    if (token_it->typecode == 1) {
+        sym = (char*)malloc(sizeof(char) * 3);
+        strcpy(sym, "ID");
+    }
+    else if (token_it->typecode == 2) {
+        sym = (char*)malloc(sizeof(char) * 7);
+        strcpy(sym, "INT_NUM");
+    }
+    else if (token_it->typecode == 60) {
+        sym = (char*)malloc(sizeof(char) * 2);
+        strcpy(sym, "$");
+    }
+    else {
+        sym = (char*)malloc(sizeof(char) * (strlen(token_it->value) + 1));
+        strcpy(sym, token_it->value);
+    }
+    ATindex idx;
+    idx.table = AT_TABLE_ACTION;
+    idx.state = state_stack.top();
+    idx.symbol = sym;
+    map<ATindex, ATval>::iterator it = analyse_table.find(idx);
+    if (it != analyse_table.end()) {
+        int type = it->second.type;
+        int val = it->second.val;
+        if (type == AT_TYPE_SHIFT) {        // 如果是shift，那么把新的状态值（val）和符号（sym）读取到栈中。
+            state_stack.push(val);
+            symbol_stack.push(sym);
+        }
+        else if (type == AT_TYPE_REDUCE) {      // 如果是reduce，那么归约
+            free(sym);
+            reduce(val);
+        }
+        else if (type == AT_TYPE_ACC) {
+            free(sym);
+            printf("get acc, a line pass!\n");
+            stack_init();
+        }
+        else {
+            free(sym);
+            printf("error happen! type = %d\n", type);
+            exit(0);
+        }
+    }
+    else {
+        free(sym);
+        printf("analyse_table action cannot find!\n");
+        exit(0);
+    }
+}
+
+void LR1Analyser::shift_goto() {
+    int len = strlen(symbol_stack.top());
+    char *sym = (char*)malloc(sizeof(char) * (len + 1));
+    strcpy(sym, symbol_stack.top());
+    sym[len] = '\0';
+    ATindex idx;
+    idx.table = AT_TABLE_GOTO;
+    idx.state = state_stack.top();
+    idx.symbol = sym;
+    map<ATindex, ATval>::iterator it = analyse_table.find(idx);
+    if (it != analyse_table.end()) {
+        int type = it->second.type;
+        int val = it->second.val;
+        if (type == AT_TYPE_GOTO) {
+            state_stack.push(val);
+            shift_action();
+        }
+        else {
+            printf("error happen! goto type\n");
+            exit(0);
+        }
+    }
+    else {
+        printf("analyse_table goto cannot find!\n");
+        exit(0);
+    }
+    free(sym);
+}
+
+void LR1Analyser::reduce(int val) {
+    char *gram = grammar_list[val - 1];
+    // 从后往前，直到箭头
+    int pf = strlen(gram);
+    int pb = strlen(gram);
+    char *tk;
+    while (gram[pf] != '>') {
+        if (gram[pf] == ' ') {
+            // tk = (char*)malloc(sizeof(char) * (pb - pf + 1));
+            // memcpy(tk, gram + pf + 1, sizeof(char) * (pb - pf));
+            // tk[pb - pf] = '\0';
+            // printf("%s\n", tk);
+            while (gram[pf] == ' ') {
+                pf--;
+            }
+            pb = pf;
+            // free(tk);
+            state_stack.pop();
+            symbol_stack.pop();
+            continue;
+        }
+        pf--;
+    }
+    pf = 0;
+    while (gram[pf] != ' ') {
+        pf++;
+    }
+    tk = (char*)malloc(sizeof(char) * (pf + 1));
+    memcpy(tk, gram, sizeof(char) * (pf));
+    tk[pf] = '\0';
+    symbol_stack.push(tk);
+    // always goto after reduce
+    shift_goto();
+}
+
+void LR1Analyser::accept() {
+
+}
+
+void LR1Analyser::error_handle() {
+
+}
+

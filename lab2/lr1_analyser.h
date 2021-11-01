@@ -7,6 +7,7 @@
 #include <stack>
 #include <string.h>
 #include "cmd_font_style.h"
+#include "lexer.h"
 
 using namespace std;
 
@@ -44,6 +45,8 @@ typedef struct RowCol {
 
 class LR1Analyser {
 public:
+    Lexer *lex;
+
     // LR1.csv 转化过来的中间数据结构
     map<RowCol, char*> lr1_table;
 
@@ -60,7 +63,10 @@ public:
     // 符号栈
     stack<char*> symbol_stack;
 
-    LR1Analyser();
+    // token的游标
+    vector<token>::iterator token_it;
+
+    LR1Analyser(Lexer *le);
 
     // 栈初始化
     void stack_init();
@@ -79,6 +85,23 @@ public:
 
     // 从类似 shift 10 中取出数字
     static int get_digit_from_value(char *val);
+
+    // 语法分析开始
+    void lr1_start();
+
+    // 移进
+    void shift_action();
+
+    void shift_goto();
+
+    // 归约
+    void reduce(int val);
+
+    // 接受
+    void accept();
+
+    // 出错 
+    void error_handle();
 
 private:
 
