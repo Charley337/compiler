@@ -3,6 +3,7 @@
 
 // 显示编码表
 void show_code_list(Lexer *le);
+void show_code_reverse(Lexer *le);
 // 显示关键字合集
 void show_keywords_set(Lexer *le);
 // 显示token表
@@ -32,6 +33,12 @@ int main(int argc, char **argv) {
     printf(FONT_BLUE FONT_HIGHLIGHT"lexer begin...\n"RESET_STYLE);
     Lexer lex(argv[1]);
     lex.output_files();
+    show_code_list(&lex);
+    printf("\n");
+    show_token_list(&lex);
+    printf("\n");
+    show_symbol_table(&lex);
+    printf("\n");
 
     // LR1文法语法分析器
     printf(FONT_BLUE FONT_HIGHLIGHT"LR1 analyser begin...\n"RESET_STYLE);
@@ -50,20 +57,32 @@ int main(int argc, char **argv) {
 
 void show_code_list(Lexer *le) {
     for (map<string, int>::iterator it = le->code_list.begin(); it != le->code_list.end(); it++) {
-        printf("%s: %d\n", it->first, it->second);
+        printf("%s: %d\n", it->first.c_str(), it->second);
+    }
+}
+
+void show_code_reverse(Lexer *le) {
+    for (map<int, string>::iterator it = le->code_reverse.begin(); it != le->code_reverse.end(); it++) {
+        printf("%d: %s\n", it->first, it->second.c_str());
     }
 }
 
 void show_keywords_set(Lexer *le) {
-
+    for (set<string>::iterator it = le->keywords_set.begin(); it != le->keywords_set.end(); it++) {
+        printf("%s\n", (*it).c_str());
+    }
 }
 
 void show_token_list(Lexer *le) {
-
+    for (token tk: le->token_list) {
+        printf("(%d, %s)\n", tk.typecode, tk.value);
+    }
 }
 
 void show_symbol_table(Lexer *le) {
-
+    for (map<string, symbol>::iterator it = le->symbol_table.begin(); it != le->symbol_table.end(); it++) {
+        printf("%s: (%s, %d, %d)\n", it->first.c_str(), it->second.name, it->second.type, it->second.offset);
+    }
 }
 
 void show_analyse_table(LR1Analyser *lr) {

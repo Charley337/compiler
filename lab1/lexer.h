@@ -9,11 +9,15 @@
 #include <vector>
 #include <set>
 #include "cmd_font_style.h"
+#include "flex_buffer.h"
 
 using namespace std;
 
 #define TOKEN_EOF -1
 #define TOKEN_ERROR -2
+
+#define CODE_LIST_FILEPATH "code_list.txt"
+#define KEYWORD_SET_FILEPATH "keyword_set.txt"
 
 typedef struct symbol {
     char *name;
@@ -30,6 +34,9 @@ class Lexer {
 public:
     // 编码表（哈希表）
     map<string, int> code_list;
+
+    // 逆向编码表
+    map<int, string> code_reverse;
 
     // 关键字集合
     set<string> keywords_set;

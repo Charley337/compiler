@@ -12,116 +12,57 @@ Lexer::Lexer(char *src) {
 }
 
 void Lexer::init_code_list() {
-    code_list.insert(map<string, int>::value_type("id", 1));
-    code_list.insert(map<string, int>::value_type("const_number", 2));
-    code_list.insert(map<string, int>::value_type("true", 3));
-    code_list.insert(map<string, int>::value_type("const_string", 4));
-    code_list.insert(map<string, int>::value_type("unsigned", 5));
-    code_list.insert(map<string, int>::value_type("short", 6));
-    code_list.insert(map<string, int>::value_type("int", 7));
-    code_list.insert(map<string, int>::value_type("long", 8));
-    code_list.insert(map<string, int>::value_type("float", 9));
-    code_list.insert(map<string, int>::value_type("double", 10));
-    code_list.insert(map<string, int>::value_type("char", 11));
-    code_list.insert(map<string, int>::value_type("bool", 12));
-    code_list.insert(map<string, int>::value_type("void", 13));
-    code_list.insert(map<string, int>::value_type("if", 14));
-    code_list.insert(map<string, int>::value_type("else", 15));
-    code_list.insert(map<string, int>::value_type("while", 16));
-    code_list.insert(map<string, int>::value_type("do", 17));
-    code_list.insert(map<string, int>::value_type("for", 18));
-    code_list.insert(map<string, int>::value_type("switch", 19));
-    code_list.insert(map<string, int>::value_type("case", 20));
-    code_list.insert(map<string, int>::value_type("break", 21));
-    code_list.insert(map<string, int>::value_type("continue", 22));
-    code_list.insert(map<string, int>::value_type("default", 23));
-    code_list.insert(map<string, int>::value_type("struct", 24));
-    code_list.insert(map<string, int>::value_type("static", 25));
-    code_list.insert(map<string, int>::value_type("sizeof", 26));
-    code_list.insert(map<string, int>::value_type("return", 27));
-    code_list.insert(map<string, int>::value_type("volatile", 28));
-    code_list.insert(map<string, int>::value_type("enum", 29));
-    code_list.insert(map<string, int>::value_type("false", 30));
-    code_list.insert(map<string, int>::value_type("=", 31));
-    code_list.insert(map<string, int>::value_type(">", 32));
-    code_list.insert(map<string, int>::value_type("<", 33));
-    code_list.insert(map<string, int>::value_type("?", 34));
-    code_list.insert(map<string, int>::value_type("==", 35));
-    code_list.insert(map<string, int>::value_type("!=", 36));
-    code_list.insert(map<string, int>::value_type(">=", 37));
-    code_list.insert(map<string, int>::value_type("<=", 38));
-    code_list.insert(map<string, int>::value_type("+", 39));
-    code_list.insert(map<string, int>::value_type("-", 40));
-    code_list.insert(map<string, int>::value_type("*", 41));
-    code_list.insert(map<string, int>::value_type("/", 42));
-    code_list.insert(map<string, int>::value_type("%", 43));
-    code_list.insert(map<string, int>::value_type("^", 44));
-    code_list.insert(map<string, int>::value_type("++", 45));
-    code_list.insert(map<string, int>::value_type("+=", 46));
-    code_list.insert(map<string, int>::value_type("-=", 47));
-    code_list.insert(map<string, int>::value_type("*=", 48));
-    code_list.insert(map<string, int>::value_type("/=", 49));
-    code_list.insert(map<string, int>::value_type("**", 50));
-    code_list.insert(map<string, int>::value_type("!", 51));
-    code_list.insert(map<string, int>::value_type("&", 52));
-    code_list.insert(map<string, int>::value_type("|", 53));
-    code_list.insert(map<string, int>::value_type("&&", 54));
-    code_list.insert(map<string, int>::value_type("||", 55));
-    code_list.insert(map<string, int>::value_type("->", 56));
-    code_list.insert(map<string, int>::value_type(".", 57));
-    code_list.insert(map<string, int>::value_type(",", 58));
-    code_list.insert(map<string, int>::value_type(":", 59));
-    code_list.insert(map<string, int>::value_type(";", 60));
-    code_list.insert(map<string, int>::value_type("(", 61));
-    code_list.insert(map<string, int>::value_type(")", 62));
-    code_list.insert(map<string, int>::value_type("[", 63));
-    code_list.insert(map<string, int>::value_type("]", 64));
-    code_list.insert(map<string, int>::value_type("{", 65));
-    code_list.insert(map<string, int>::value_type("}", 66));
-    code_list.insert(map<string, int>::value_type("--", 67));
-    code_list.insert(map<string, int>::value_type("include", 68));
-    code_list.insert(map<string, int>::value_type("#", 69));
-    code_list.insert(map<string, int>::value_type("define", 70));
-    code_list.insert(map<string, int>::value_type("typedef", 71));
-    code_list.insert(map<string, int>::value_type("const_number_2", 72));
-    code_list.insert(map<string, int>::value_type("const_number_8", 73));
-    code_list.insert(map<string, int>::value_type("const_number_16", 74));
+    FILE *fp = fopen(CODE_LIST_FILEPATH, "r");
+    if (fp == NULL) {
+        printf(FONT_RED FONT_HIGHLIGHT "fail to open file: code_list.txt\n"RESET_STYLE);
+        exit(0);
+    }
+    char ch;
+    FlexBuffer flex_buf;
+    while ((ch = fgetc(fp)) != EOF) {
+        flex_buf.insert(ch);
+    }
+    fclose(fp);
+    int cnt = 0;
+    char *temp = flex_buf.get_line();
+    while (temp != NULL) {
+        cnt++;
+        string str_temp = temp;
+        code_list.insert(map<string, int>::value_type(str_temp, cnt));
+        code_reverse.insert(map<int, string>::value_type(cnt, str_temp));
+        free(temp);
+        temp = flex_buf.get_line();
+    }
+    flex_buf.self_delete();
 }
 
 void Lexer::init_keywords_set() {
-    keywords_set.insert("unsigned");
-    keywords_set.insert("short");
-    keywords_set.insert("int");
-    keywords_set.insert("long");
-    keywords_set.insert("float");
-    keywords_set.insert("double");
-    keywords_set.insert("char");
-    keywords_set.insert("bool");
-    keywords_set.insert("void");
-    keywords_set.insert("if");
-    keywords_set.insert("else");
-    keywords_set.insert("while");
-    keywords_set.insert("do");
-    keywords_set.insert("for");
-    keywords_set.insert("switch");
-    keywords_set.insert("case");
-    keywords_set.insert("break");
-    keywords_set.insert("continue");
-    keywords_set.insert("default");
-    keywords_set.insert("struct");
-    keywords_set.insert("static");
-    keywords_set.insert("sizeof");
-    keywords_set.insert("return");
-    keywords_set.insert("volatile");
-    keywords_set.insert("enum");
-    keywords_set.insert("true");
-    keywords_set.insert("false");
-    keywords_set.insert("include");
-    keywords_set.insert("define");
-    keywords_set.insert("typedef");
+    FILE *fp = fopen(KEYWORD_SET_FILEPATH, "r");
+    if (fp == NULL) {
+        printf(FONT_RED FONT_HIGHLIGHT "fail to open file: keyword_set.txt\n"RESET_STYLE);
+        exit(0);
+    }
+    char ch;
+    FlexBuffer flex_buf;
+    while ((ch = fgetc(fp)) != EOF) {
+        flex_buf.insert(ch);
+    }
+    fclose(fp);
+    int cnt = 0;
+    char *temp = flex_buf.get_line();
+    while (temp != NULL) {
+        cnt++;
+        string str_temp = temp;
+        keywords_set.insert(str_temp);
+        free(temp);
+        temp = flex_buf.get_line();
+    }
+    flex_buf.self_delete();
 }
 
 void Lexer::init_token_list() {
+    fbuf_forward = 0;
+    fbuf_beginning = 0;
     token t = token_scan();
     while (t.typecode != TOKEN_EOF) {
         token_list.push_back(t);
@@ -136,14 +77,16 @@ void Lexer::read_src_file(char *filepath) {
         printf(FONT_RED FONT_HIGHLIGHT "fail to open source file!\n"RESET_STYLE);
         exit(0);
     }
-    fseek(fp, 0, SEEK_END);
-    fbuf_len = ftell(fp);
-    rewind(fp);
-    fbuf = (char*)malloc(sizeof(char) * (fbuf_len + 1));
-    fread(fbuf, fbuf_len, 1, fp);
+    char ch;
+    FlexBuffer flex_buf;
+    while ((ch = fgetc(fp)) != EOF) {
+        flex_buf.insert(ch);
+    }
     fclose(fp);
-    fbuf_beginning = 0;
-    fbuf_forward = 0;
+    fbuf_len = flex_buf.nextfree;
+    fbuf = (char*)malloc(sizeof(char) * (fbuf_len));
+    memcpy(fbuf, flex_buf.buf, sizeof(char) * fbuf_len);
+    flex_buf.self_delete();
 }
 
 // 读一个字符
