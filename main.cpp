@@ -82,8 +82,8 @@ void show_analyse_table(LR1Analyser *lr) {
 }
 
 void show_grammar_list(LR1Analyser *lr) {
-    for (int i = 0; i < lr->grammar_list_len; i++) {
-        printf("%s\n", lr->grammar_list[i]);
+    for (int i = 1; i <= lr->grammar_list_len; i++) {
+        printf("%d: %s\n", i, lr->grammar_list[i]);
     }
 }
 

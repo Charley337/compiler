@@ -56,6 +56,8 @@ public:
     // 文法表
     char **grammar_list;
     int grammar_list_len;
+    // 文法查找表
+    map<string, int> grammar_reverse;
 
     // 状态栈
     stack<int> state_stack;
@@ -84,7 +86,7 @@ public:
     static int get_value(char *val, char *line, int *lp);
 
     // 从类似 shift 10 中取出数字
-    static int get_digit_from_value(char *val);
+    int get_digit_from_value(char *val);
 
     // 语法分析开始
     void lr1_start();

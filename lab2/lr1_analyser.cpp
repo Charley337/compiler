@@ -3,8 +3,8 @@
 LR1Analyser::LR1Analyser(Lexer *le) {
     lex = le;
     token_it = lex->token_list.begin();
-    at_init();
     grammar_list_init();
+    at_init();
     stack_init();
 }
 
@@ -83,8 +83,11 @@ int LR1Analyser::get_value(char *val, char *line, int *lp) {
         val[(*lp) - begin] = '\0';
         (*lp)++;
         if (val[0] == '"') {
-            val[0] = ',';
-            val[1] = '\0';
+            for (int j = 0; j < strlen(val); j++) {
+                val[j] = val[j + 1];
+            }
+            val[strlen(val) - 1] = '\0';
+            // printf("%s\n", val);
         }
         return 1;
     }
@@ -104,10 +107,11 @@ int LR1Analyser::get_digit_from_value(char *val) {
         }
     }
     else if (val[0] == 'r') {
-        for (int i = 7; i < len; i++) {
-            res *= 10;
-            res += val[i] - 48;
+        if (grammar_reverse.find(val + 7) == grammar_reverse.end()) {
+            printf("cannot find grammar\n");
+            exit(0);
         }
+        res = grammar_reverse.find(val + 7)->second;
     }
     else {
         for (int i = 0; i < len; i++) {
@@ -141,6 +145,7 @@ void LR1Analyser::at_init() {
     int col = 0;
     int max_col = 0;
     char *val_temp;
+    get_line(line, buffer, &bp);
     while (get_line(line, buffer, &bp)) {
         col = 0;
         lp = 0;
@@ -244,8 +249,8 @@ void LR1Analyser::grammar_list_init() {
 
     // 获取文法
     bp = 0;
-    int i = 0;
-    grammar_list = (char**)malloc(sizeof(char*) * (num_line + 1));
+    int i = 1;
+    grammar_list = (char**)malloc(sizeof(char*) * (num_line + 2));
     while (get_line(line, buffer, &bp)) {
         len = strlen(line);
         grammar_list[i] = (char*)malloc(sizeof(char) * (len + 1));
@@ -255,9 +260,13 @@ void LR1Analyser::grammar_list_init() {
         grammar_list[i][len] = '\0';
         i++;
     }
-
     free(buffer);
     free(line);
+
+    // 初始化文法查找表
+    for (int i = 1; i <= grammar_list_len; i++) {
+        grammar_reverse.insert(map<string, int>::value_type(grammar_list[i], i));
+    }
 }
 
 void LR1Analyser::lr1_start() {
@@ -267,7 +276,7 @@ void LR1Analyser::lr1_start() {
         shift_action();
         token_it++;
     }
-    printf("lr1 grammer analyse pass!\n");
+    printf(FONT_GREEN"lr1 grammar analyse pass!\n"RESET_STYLE);
 }
 
 void LR1Analyser::shift_action() {
@@ -291,7 +300,7 @@ void LR1Analyser::shift_action() {
             reduce(val);
         }
         else if (type == AT_TYPE_ACC) {
-            printf("get acc, a line pass!\n");
+            printf(FONT_GREEN "Accept a sentence.\n"RESET_STYLE);
             stack_init();
         }
         else {
@@ -331,7 +340,8 @@ void LR1Analyser::shift_goto() {
 }
 
 void LR1Analyser::reduce(int val) {
-    char *gram = grammar_list[val - 1];
+    char *gram = grammar_list[val];
+    printf("%s\n", gram);
     // 从后往前，直到箭头
     int pf = strlen(gram);
     int pb = strlen(gram);
