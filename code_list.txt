@@ -72,3 +72,12 @@ typedef
 const_number_2
 const_number_8
 const_number_16
+$
+S
+declaration
+type
+var_list
+assignment
+ass_right
+ass_a
+ass_b

@@ -33,21 +33,11 @@ int main(int argc, char **argv) {
     printf(FONT_BLUE FONT_HIGHLIGHT"lexer begin...\n"RESET_STYLE);
     Lexer lex(argv[1]);
     lex.output_files();
-    show_code_list(&lex);
-    printf("\n");
-    show_token_list(&lex);
-    printf("\n");
-    show_symbol_table(&lex);
-    printf("\n");
 
     // LR1文法语法分析器
     printf(FONT_BLUE FONT_HIGHLIGHT"LR1 analyser begin...\n"RESET_STYLE);
     LR1Analyser lr1analyser(&lex);
     lr1analyser.lr1_start();
-    show_state_stack(&lr1analyser);
-    printf("\n");
-    show_symbol_stack(&lr1analyser);
-    printf("\n");
 
     // 程序结束
     printf(FONT_BLUE FONT_HIGHLIGHT"ending\n"RESET_STYLE);
@@ -114,8 +104,8 @@ void show_state_stack(LR1Analyser *lr) {
 }
 
 void show_symbol_stack(LR1Analyser *lr) {
-    char* temp;
-    stack<char*> temp_stack;
+    int temp;
+    stack<int> temp_stack;
     while (lr->symbol_stack.empty() == false) {
         temp = lr->symbol_stack.top();
         lr->symbol_stack.pop();
@@ -125,7 +115,7 @@ void show_symbol_stack(LR1Analyser *lr) {
         temp = temp_stack.top();
         temp_stack.pop();
         lr->symbol_stack.push(temp);
-        printf("%s\n", temp);
+        printf("%s\n", lr->lex->code_reverse.find(temp)->second);
     }
 }
 

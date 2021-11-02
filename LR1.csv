@@ -1,42 +1,53 @@
-,+,=,-,*,/,%,(,),ID,INT_NUM,int,$,S,A,B,C,S'
-0,,,,,,,,,shift 2,,shift 3,,,,,,1
-1,,,,,,,,,,,,accept
-2,,shift 4
-3,,,,,,,,,shift 5
-4,,,,,,,shift 9,,shift 10,shift 11,,,6,7,8
-5,,,,,,,,,,,,reduce 2
-6,shift 12,,shift 13,,,,,,,,,reduce 3
-7,reduce 6,,reduce 6,shift 14,shift 15,shift 16,,,,,,reduce 6
-8,reduce 10,,reduce 10,reduce 10,reduce 10,reduce 10,,,,,,reduce 10
-9,,,,,,,shift 20,,shift 21,shift 22,,,17,18,19
-10,reduce 12,,reduce 12,reduce 12,reduce 12,reduce 12,,,,,,reduce 12
-11,reduce 13,,reduce 13,reduce 13,reduce 13,reduce 13,,,,,,reduce 13
-12,,,,,,,shift 9,,shift 10,shift 11,,,,23,8
-13,,,,,,,shift 9,,shift 10,shift 11,,,,24,8
-14,,,,,,,shift 9,,shift 10,shift 11,,,,,25
-15,,,,,,,shift 9,,shift 10,shift 11,,,,,26
-16,,,,,,,shift 9,,shift 10,shift 11,,,,,27
-17,shift 28,,shift 29,,,,,shift 30
-18,reduce 6,,reduce 6,shift 31,shift 32,shift 33,,reduce 6
-19,reduce 10,,reduce 10,reduce 10,reduce 10,reduce 10,,reduce 10
-20,,,,,,,shift 20,,shift 21,shift 22,,,34,18,19
-21,reduce 12,,reduce 12,reduce 12,reduce 12,reduce 12,,reduce 12
-22,reduce 13,,reduce 13,reduce 13,reduce 13,reduce 13,,reduce 13
-23,reduce 4,,reduce 4,shift 14,shift 15,shift 16,,,,,,reduce 4
-24,reduce 5,,reduce 5,shift 14,shift 15,shift 16,,,,,,reduce 5
-25,reduce 7,,reduce 7,reduce 7,reduce 7,reduce 7,,,,,,reduce 7
-26,reduce 8,,reduce 8,reduce 8,reduce 8,reduce 8,,,,,,reduce 8
-27,reduce 9,,reduce 9,reduce 9,reduce 9,reduce 9,,,,,,reduce 9
-28,,,,,,,shift 20,,shift 21,shift 22,,,,35,19
-29,,,,,,,shift 20,,shift 21,shift 22,,,,36,19
-30,reduce 11,,reduce 11,reduce 11,reduce 11,reduce 11,,,,,,reduce 11
-31,,,,,,,shift 20,,shift 21,shift 22,,,,,37
-32,,,,,,,shift 20,,shift 21,shift 22,,,,,38
-33,,,,,,,shift 20,,shift 21,shift 22,,,,,39
-34,shift 28,,shift 29,,,,,shift 40
-35,reduce 4,,reduce 4,shift 31,shift 32,shift 33,,reduce 4
-36,reduce 5,,reduce 5,shift 31,shift 32,shift 33,,reduce 5
-37,reduce 7,,reduce 7,reduce 7,reduce 7,reduce 7,,reduce 7
-38,reduce 8,,reduce 8,reduce 8,reduce 8,reduce 8,,reduce 8
-39,reduce 9,,reduce 9,reduce 9,reduce 9,reduce 9,,reduce 9
-40,reduce 11,,reduce 11,reduce 11,reduce 11,reduce 11,,reduce 11
+,+,=,-,*,/,%,(,),id,const_number,const_string,int,float,bool,char,",",$,S,declaration,type,var_list,assignment,ass_right,ass_a,ass_b
+0,,,,,,,,,shift 5,,,shift 6,shift 7,shift 8,shift 9,,,1,2,3,,4,,,
+1,,,,,,,,,,,,,,,,,accept,,,,,,,,
+2,,,,,,,,,,,,,,,,,reduce 2,,,,,,,,
+3,,,,,,,,,shift 11,,,,,,,,,,,,10,,,,
+4,,,,,,,,,,,,,,,,,reduce 3,,,,,,,,
+5,,shift 12,,,,,,,,,,,,,,,,,,,,,,,
+6,,,,,,,,,reduce 5,,,,,,,,,,,,,,,,
+7,,,,,,,,,reduce 6,,,,,,,,,,,,,,,,
+8,,,,,,,,,reduce 7,,,,,,,,,,,,,,,,
+9,,,,,,,,,reduce 8,,,,,,,,,,,,,,,,
+10,,,,,,,,,,,,,,,,,reduce 4,,,,,,,,
+11,,,,,,,,,,,,,,,,shift 13,reduce 10,,,,,,,,
+12,,,,,,,shift 17,,shift 18,shift 19,shift 20,,,,,,,,,,,,14,15,16
+13,,,,,,,,,shift 11,,,,,,,,,,,,21,,,,
+14,shift 22,,shift 23,,,,,,,,,,,,,,reduce 11,,,,,,,,
+15,reduce 14,,reduce 14,shift 24,shift 25,shift 26,,,,,,,,,,,reduce 14,,,,,,,,
+16,reduce 18,,reduce 18,reduce 18,reduce 18,reduce 18,,,,,,,,,,,reduce 18,,,,,,,,
+17,,,,,,,shift 30,,shift 31,shift 32,shift 33,,,,,,,,,,,,27,28,29
+18,reduce 20,,reduce 20,reduce 20,reduce 20,reduce 20,,,,,,,,,,,reduce 20,,,,,,,,
+19,reduce 21,,reduce 21,reduce 21,reduce 21,reduce 21,,,,,,,,,,,reduce 21,,,,,,,,
+20,reduce 22,,reduce 22,reduce 22,reduce 22,reduce 22,,,,,,,,,,,reduce 22,,,,,,,,
+21,,,,,,,,,,,,,,,,,reduce 9,,,,,,,,
+22,,,,,,,shift 17,,shift 18,shift 19,shift 20,,,,,,,,,,,,,34,16
+23,,,,,,,shift 17,,shift 18,shift 19,shift 20,,,,,,,,,,,,,35,16
+24,,,,,,,shift 17,,shift 18,shift 19,shift 20,,,,,,,,,,,,,,36
+25,,,,,,,shift 17,,shift 18,shift 19,shift 20,,,,,,,,,,,,,,37
+26,,,,,,,shift 17,,shift 18,shift 19,shift 20,,,,,,,,,,,,,,38
+27,shift 39,,shift 40,,,,,shift 41,,,,,,,,,,,,,,,,,
+28,reduce 14,,reduce 14,shift 42,shift 43,shift 44,,reduce 14,,,,,,,,,,,,,,,,,
+29,reduce 18,,reduce 18,reduce 18,reduce 18,reduce 18,,reduce 18,,,,,,,,,,,,,,,,,
+30,,,,,,,shift 30,,shift 31,shift 32,shift 33,,,,,,,,,,,,45,28,29
+31,reduce 20,,reduce 20,reduce 20,reduce 20,reduce 20,,reduce 20,,,,,,,,,,,,,,,,,
+32,reduce 21,,reduce 21,reduce 21,reduce 21,reduce 21,,reduce 21,,,,,,,,,,,,,,,,,
+33,reduce 22,,reduce 22,reduce 22,reduce 22,reduce 22,,reduce 22,,,,,,,,,,,,,,,,,
+34,reduce 12,,reduce 12,shift 24,shift 25,shift 26,,,,,,,,,,,reduce 12,,,,,,,,
+35,reduce 13,,reduce 13,shift 24,shift 25,shift 26,,,,,,,,,,,reduce 13,,,,,,,,
+36,reduce 15,,reduce 15,reduce 15,reduce 15,reduce 15,,,,,,,,,,,reduce 15,,,,,,,,
+37,reduce 16,,reduce 16,reduce 16,reduce 16,reduce 16,,,,,,,,,,,reduce 16,,,,,,,,
+38,reduce 17,,reduce 17,reduce 17,reduce 17,reduce 17,,,,,,,,,,,reduce 17,,,,,,,,
+39,,,,,,,shift 30,,shift 31,shift 32,shift 33,,,,,,,,,,,,,46,29
+40,,,,,,,shift 30,,shift 31,shift 32,shift 33,,,,,,,,,,,,,47,29
+41,reduce 19,,reduce 19,reduce 19,reduce 19,reduce 19,,,,,,,,,,,reduce 19,,,,,,,,
+42,,,,,,,shift 30,,shift 31,shift 32,shift 33,,,,,,,,,,,,,,48
+43,,,,,,,shift 30,,shift 31,shift 32,shift 33,,,,,,,,,,,,,,49
+44,,,,,,,shift 30,,shift 31,shift 32,shift 33,,,,,,,,,,,,,,50
+45,shift 39,,shift 40,,,,,shift 51,,,,,,,,,,,,,,,,,
+46,reduce 12,,reduce 12,shift 42,shift 43,shift 44,,reduce 12,,,,,,,,,,,,,,,,,
+47,reduce 13,,reduce 13,shift 42,shift 43,shift 44,,reduce 13,,,,,,,,,,,,,,,,,
+48,reduce 15,,reduce 15,reduce 15,reduce 15,reduce 15,,reduce 15,,,,,,,,,,,,,,,,,
+49,reduce 16,,reduce 16,reduce 16,reduce 16,reduce 16,,reduce 16,,,,,,,,,,,,,,,,,
+50,reduce 17,,reduce 17,reduce 17,reduce 17,reduce 17,,reduce 17,,,,,,,,,,,,,,,,,
+51,reduce 19,,reduce 19,reduce 19,reduce 19,reduce 19,,reduce 19,,,,,,,,,,,,,,,,,

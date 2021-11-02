@@ -22,10 +22,10 @@ using namespace std;
 typedef struct ATindex {
     int table;
     int state;
-    char *symbol;
+    int symbol;
 
     bool operator < (const ATindex &o) const {
-		return table < o.table || (table == o.table && state < o.state) || (table == o.table && state == o.state && strcmp(symbol, o.symbol) < 0);
+		return table < o.table || (table == o.table && state < o.state) || (table == o.table && state == o.state && symbol < o.symbol);
 	}
 }ATindex;
 
@@ -61,7 +61,7 @@ public:
     stack<int> state_stack;
 
     // 符号栈
-    stack<char*> symbol_stack;
+    stack<int> symbol_stack;
 
     // token的游标
     vector<token>::iterator token_it;

@@ -1,20 +1,29 @@
 [非终结符]
-S A B C S'
+S declaration type var_list assignment ass_right ass_a ass_b
 [终结符]
-+ = - * / % ( ) ID INT_NUM int 
++ = - * / % ( ) id const_number const_string int float bool char ,
 [文法起始符]
-E'
+S'
 [生成式]
-E' -> S';
-S' -> int ID;
-S' -> ID = S;
-S -> S + A;
-S -> S - A;
-S -> A;
-A -> A * B;
-A -> A / B;
-A -> A % B;
-A -> B;
-B -> ( S );
-B -> ID;
-B -> INT_NUM;
+S' -> S;
+S -> declaration;
+S -> assignment;
+declaration -> type var_list;
+type -> int;
+type -> float;
+type -> bool;
+type -> char;
+var_list -> id , var_list;
+var_list -> id;
+assignment -> id = ass_right;
+ass_right -> ass_right + ass_a;
+ass_right -> ass_right - ass_a;
+ass_right -> ass_a;
+ass_a -> ass_a * ass_b;
+ass_a -> ass_a / ass_b;
+ass_a -> ass_a % ass_b;
+ass_a -> ass_b;
+ass_b -> ( ass_right );
+ass_b -> id;
+ass_b -> const_number;
+ass_b -> const_string;

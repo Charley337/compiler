@@ -1,11 +1,11 @@
 #include "lr1_analyser.h"
 
 LR1Analyser::LR1Analyser(Lexer *le) {
+    lex = le;
+    token_it = lex->token_list.begin();
     at_init();
     grammar_list_init();
     stack_init();
-    lex = le;
-    token_it = lex->token_list.begin();
 }
 
 
@@ -20,10 +20,7 @@ void LR1Analyser::stack_init() {
     }
     // 初始化
     state_stack.push(0);
-    char *temp = (char*)malloc(sizeof(char) * 2);
-    temp[0] = '#';
-    temp[1] = '\0';
-    symbol_stack.push(temp);
+    symbol_stack.push(lex->code_list.find("#")->second);
 }
 
 
@@ -57,6 +54,16 @@ int LR1Analyser::get_line(char *line, char *buffer, int *bp) {
 int LR1Analyser::get_value(char *val, char *line, int *lp) {
     int begin = *lp;
     while (line[*lp] != '\0' && line[*lp] != ',') {
+        if (line[*lp] == '"') {
+            (*lp)++;
+            while (line[*lp] != '"') {
+                (*lp)++;
+                if (line[*lp] == '\0') {
+                    printf("lr1 get_value error\n");
+                    exit(0);
+                }
+            }
+        }
         (*lp)++;
     }
     if (line[*lp] == '\0' && (*lp) == begin) {
@@ -75,6 +82,10 @@ int LR1Analyser::get_value(char *val, char *line, int *lp) {
         }
         val[(*lp) - begin] = '\0';
         (*lp)++;
+        if (val[0] == '"') {
+            val[0] = ',';
+            val[1] = '\0';
+        }
         return 1;
     }
 }
@@ -180,7 +191,11 @@ void LR1Analyser::at_init() {
                 temp_ati.table = (j <= divider) ? AT_TABLE_ACTION : AT_TABLE_GOTO;
                 temp_rc.row = 0;
                 temp_rc.col = j;
-                temp_ati.symbol = lr1_table.find(temp_rc)->second;
+                if (lex->code_list.find(lr1_table.find(temp_rc)->second) == lex->code_list.end()) {
+                    printf("code_list cannot find! (%d, %d): %s\n", temp_rc.row, temp_rc.col, lr1_table.find(temp_rc)->second);
+                    exit(0);
+                }
+                temp_ati.symbol = lex->code_list.find(lr1_table.find(temp_rc)->second)->second;
                 if (temp_ite->second[0] == 's') {
                     temp_atv.type = AT_TYPE_SHIFT;
                 }
@@ -252,25 +267,13 @@ void LR1Analyser::lr1_start() {
         shift_action();
         token_it++;
     }
+    printf("lr1 grammer analyse pass!\n");
 }
 
 void LR1Analyser::shift_action() {
-    char *sym;
-    if (token_it->typecode == 1) {
-        sym = (char*)malloc(sizeof(char) * 3);
-        strcpy(sym, "ID");
-    }
-    else if (token_it->typecode == 2) {
-        sym = (char*)malloc(sizeof(char) * 7);
-        strcpy(sym, "INT_NUM");
-    }
-    else if (token_it->typecode == 60) {
-        sym = (char*)malloc(sizeof(char) * 2);
-        strcpy(sym, "$");
-    }
-    else {
-        sym = (char*)malloc(sizeof(char) * (strlen(token_it->value) + 1));
-        strcpy(sym, token_it->value);
+    int sym = token_it->typecode;
+    if (sym == lex->code_list.find(";")->second) {
+        sym = lex->code_list.find("$")->second;
     }
     ATindex idx;
     idx.table = AT_TABLE_ACTION;
@@ -285,36 +288,29 @@ void LR1Analyser::shift_action() {
             symbol_stack.push(sym);
         }
         else if (type == AT_TYPE_REDUCE) {      // 如果是reduce，那么归约
-            free(sym);
             reduce(val);
         }
         else if (type == AT_TYPE_ACC) {
-            free(sym);
             printf("get acc, a line pass!\n");
             stack_init();
         }
         else {
-            free(sym);
             printf("error happen! type = %d\n", type);
+            printf("(%d, %d, %d): (%d, %d)\n", it->first.table, it->first.state, it->first.symbol, it->second.type, it->second.val);
             exit(0);
         }
     }
     else {
-        free(sym);
         printf("analyse_table action cannot find!\n");
         exit(0);
     }
 }
 
 void LR1Analyser::shift_goto() {
-    int len = strlen(symbol_stack.top());
-    char *sym = (char*)malloc(sizeof(char) * (len + 1));
-    strcpy(sym, symbol_stack.top());
-    sym[len] = '\0';
     ATindex idx;
     idx.table = AT_TABLE_GOTO;
     idx.state = state_stack.top();
-    idx.symbol = sym;
+    idx.symbol = symbol_stack.top();
     map<ATindex, ATval>::iterator it = analyse_table.find(idx);
     if (it != analyse_table.end()) {
         int type = it->second.type;
@@ -332,7 +328,6 @@ void LR1Analyser::shift_goto() {
         printf("analyse_table goto cannot find!\n");
         exit(0);
     }
-    free(sym);
 }
 
 void LR1Analyser::reduce(int val) {
@@ -343,15 +338,10 @@ void LR1Analyser::reduce(int val) {
     char *tk;
     while (gram[pf] != '>') {
         if (gram[pf] == ' ') {
-            // tk = (char*)malloc(sizeof(char) * (pb - pf + 1));
-            // memcpy(tk, gram + pf + 1, sizeof(char) * (pb - pf));
-            // tk[pb - pf] = '\0';
-            // printf("%s\n", tk);
             while (gram[pf] == ' ') {
                 pf--;
             }
             pb = pf;
-            // free(tk);
             state_stack.pop();
             symbol_stack.pop();
             continue;
@@ -365,7 +355,7 @@ void LR1Analyser::reduce(int val) {
     tk = (char*)malloc(sizeof(char) * (pf + 1));
     memcpy(tk, gram, sizeof(char) * (pf));
     tk[pf] = '\0';
-    symbol_stack.push(tk);
+    symbol_stack.push(lex->code_list.find(tk)->second);
     // always goto after reduce
     shift_goto();
 }
