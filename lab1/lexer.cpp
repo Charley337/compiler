@@ -190,8 +190,10 @@ void Lexer::symboltable_insert(char *name) {
             sym.name[i] = name[i];
         }
         sym.name[len] = '\0';
-        sym.type = code_list.find("id")->second;
-        sym.offset = 0;
+        sym.category = -1;
+        sym.type = -1;
+        sym.offset = -1;
+        sym.attr = NULL;
         string sym_str = sym.name;
         symbol_table.insert(map<string, symbol>::value_type(sym_str, sym));
     }
@@ -463,7 +465,7 @@ void Lexer::output_files() {
     }
     i = 1;
     for (map<string, symbol>::iterator ite = symbol_table.begin(); ite != symbol_table.end(); ite++) {
-        fprintf(fp, "(%s,-1,?)\n", ite->second.name);
+        fprintf(fp, "(%s,%d,%d,%d,%d)\n", ite->second.name, ite->second.category, ite->second.type, ite->second.offset, ite->second.attr);
         printf("lexer: it has already written [%d]\r", i);
         i++;
     }

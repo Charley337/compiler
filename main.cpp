@@ -39,6 +39,8 @@ int main(int argc, char **argv) {
     LR1Analyser lr1analyser(&lex);
     lr1analyser.lr1_start();
 
+    show_symbol_table(&lex);
+
     // 程序结束
     printf(FONT_BLUE FONT_HIGHLIGHT"ending\n"RESET_STYLE);
     return 0;
@@ -71,7 +73,7 @@ void show_token_list(Lexer *le) {
 
 void show_symbol_table(Lexer *le) {
     for (map<string, symbol>::iterator it = le->symbol_table.begin(); it != le->symbol_table.end(); it++) {
-        printf("%s: (%s, %d, %d)\n", it->first.c_str(), it->second.name, it->second.type, it->second.offset);
+        printf("%s: (%s, %d, %d, %d, %d)\n", it->first.c_str(), it->second.name, it->second.category, it->second.type, it->second.offset, it->second.attr);
     }
 }
 
@@ -104,18 +106,20 @@ void show_state_stack(LR1Analyser *lr) {
 }
 
 void show_symbol_stack(LR1Analyser *lr) {
-    int temp;
-    stack<int> temp_stack;
+    SymNode temp;
+    stack<SymNode> temp_stack;
     while (lr->symbol_stack.empty() == false) {
-        temp = lr->symbol_stack.top();
+        temp.id = lr->symbol_stack.top().id;
+        temp.attr = lr->symbol_stack.top().attr;
         lr->symbol_stack.pop();
         temp_stack.push(temp);
     }
     while (temp_stack.empty() == false) {
-        temp = temp_stack.top();
+        temp.id = temp_stack.top().id;
+        temp.attr = temp_stack.top().attr;
         temp_stack.pop();
         lr->symbol_stack.push(temp);
-        printf("%s\n", lr->lex->code_reverse.find(temp)->second);
+        printf("%s\n", lr->lex->code_reverse.find(temp.id)->second);
     }
 }
 

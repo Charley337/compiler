@@ -1,4 +1,7 @@
 id
+function_name
+val_name
+array_name
 const_number
 true
 const_string

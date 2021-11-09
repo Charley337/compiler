@@ -7,11 +7,13 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 # 头文件路径
 include_directories(./lab1)
 include_directories(./lab2)
+include_directories(./lab3)
 
 # 编译生成库文件
 add_library(flex_buffer_shared SHARED ./lab1/flex_buffer.cpp)
 add_library(lexer_shared SHARED ./lab1/lexer.cpp)
 add_library(lr1_analyser_shared SHARED ./lab2/lr1_analyser.cpp)
+add_library(translate_proc_shared SHARED ./lab3/translate_proc.cpp)
 
 # 资源文件
 file (COPY input_code.txt DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)
@@ -22,6 +24,7 @@ file (COPY keyword_set.txt DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
 # 添加可执行文件
 add_executable(compiler main.cpp)
+target_link_libraries(lr1_analyser_shared translate_proc_shared)
 target_link_libraries(lexer_shared flex_buffer_shared)
 target_link_libraries(compiler lexer_shared)
 target_link_libraries(compiler lr1_analyser_shared)

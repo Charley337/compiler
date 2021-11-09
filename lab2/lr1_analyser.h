@@ -43,6 +43,16 @@ typedef struct RowCol {
 	}
 }RowCol;
 
+typedef struct SymNode {
+    int id;
+    Attr *attr;
+}SymNode;
+
+typedef struct SymList {
+    SymNode val;
+    struct SymList *next;
+}SymList;
+
 class LR1Analyser {
 public:
     Lexer *lex;
@@ -63,12 +73,19 @@ public:
     stack<int> state_stack;
 
     // 符号栈
-    stack<int> symbol_stack;
+    stack<SymNode> symbol_stack;
 
     // token的游标
     vector<token>::iterator token_it;
 
+    // 语义子函数指针数组
+    void (**proc_list)(SymNode*, SymList*, Lexer*);
+    int proc_num;
+
     LR1Analyser(Lexer *le);
+
+    // 子函数指针数组初始化
+    void proc_list_init();
 
     // 栈初始化
     void stack_init();

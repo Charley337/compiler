@@ -1,11 +1,51 @@
 #include "lr1_analyser.h"
+#include "translate_proc.h"
 
 LR1Analyser::LR1Analyser(Lexer *le) {
     lex = le;
     token_it = lex->token_list.begin();
+    proc_list_init();
     grammar_list_init();
     at_init();
     stack_init();
+}
+
+void LR1Analyser::proc_list_init() {
+    void (*buf[])(SymNode*, SymList*, Lexer*) = {
+        NULL,
+        proc_grammar_1,
+        proc_grammar_2,
+        proc_grammar_3,
+        proc_grammar_4,
+        proc_grammar_5,
+        proc_grammar_6,
+        proc_grammar_7,
+        proc_grammar_8,
+        proc_grammar_9,
+        proc_grammar_10,
+        proc_grammar_11,
+        proc_grammar_12,
+        proc_grammar_13,
+        proc_grammar_14,
+        proc_grammar_15,
+        proc_grammar_16,
+        proc_grammar_17,
+        proc_grammar_18,
+        proc_grammar_19,
+        proc_grammar_20,
+        proc_grammar_21,
+        proc_grammar_22,
+        NULL,
+    };
+    proc_num = 1;
+    while (buf[proc_num] != NULL) {
+        proc_num++;
+    }
+    proc_num--;
+    proc_list = (void (**)(SymNode*, SymList*, Lexer*))malloc(sizeof(void (*)(SymNode*, SymList*, Lexer*)) * (proc_num + 1));
+    for (int i = 0; i <= proc_num; i++) {
+        proc_list[i] = buf[i];
+    }
 }
 
 
@@ -20,7 +60,10 @@ void LR1Analyser::stack_init() {
     }
     // 初始化
     state_stack.push(0);
-    symbol_stack.push(lex->code_list.find("#")->second);
+    SymNode temp;
+    temp.id = lex->code_list.find("#")->second;
+    temp.attr = NULL;
+    symbol_stack.push(temp);
 }
 
 
@@ -294,13 +337,19 @@ void LR1Analyser::shift_action() {
         int val = it->second.val;
         if (type == AT_TYPE_SHIFT) {        // 如果是shift，那么把新的状态值（val）和符号（sym）读取到栈中。
             state_stack.push(val);
-            symbol_stack.push(sym);
+            SymNode symnodetemp;
+            symnodetemp.id = sym;
+            symnodetemp.attr = (Attr*)malloc(sizeof(Attr));
+            symnodetemp.attr->attr_name = "name";
+            symnodetemp.attr->val = (char*)malloc(sizeof(char) * (strlen(token_it->value) + 1));
+            strcpy((char*)symnodetemp.attr->val, token_it->value);
+            symbol_stack.push(symnodetemp);
         }
         else if (type == AT_TYPE_REDUCE) {      // 如果是reduce，那么归约
             reduce(val);
         }
         else if (type == AT_TYPE_ACC) {
-            printf(FONT_GREEN "Accept a sentence.\n"RESET_STYLE);
+            accept();
             stack_init();
         }
         else {
@@ -319,7 +368,7 @@ void LR1Analyser::shift_goto() {
     ATindex idx;
     idx.table = AT_TABLE_GOTO;
     idx.state = state_stack.top();
-    idx.symbol = symbol_stack.top();
+    idx.symbol = symbol_stack.top().id;
     map<ATindex, ATval>::iterator it = analyse_table.find(idx);
     if (it != analyse_table.end()) {
         int type = it->second.type;
@@ -346,12 +395,19 @@ void LR1Analyser::reduce(int val) {
     int pf = strlen(gram);
     int pb = strlen(gram);
     char *tk;
+    SymList *symhead = NULL;
+    SymNode symfather;
     while (gram[pf] != '>') {
         if (gram[pf] == ' ') {
             while (gram[pf] == ' ') {
                 pf--;
             }
             pb = pf;
+            // 符号串
+            SymList *symlist_temp = (SymList*)malloc(sizeof(SymList));
+            symlist_temp->val = symbol_stack.top();
+            symlist_temp->next = symhead;
+            symhead = symlist_temp;
             state_stack.pop();
             symbol_stack.pop();
             continue;
@@ -365,13 +421,15 @@ void LR1Analyser::reduce(int val) {
     tk = (char*)malloc(sizeof(char) * (pf + 1));
     memcpy(tk, gram, sizeof(char) * (pf));
     tk[pf] = '\0';
-    symbol_stack.push(lex->code_list.find(tk)->second);
+    symfather.id = lex->code_list.find(tk)->second;
+    proc_list[val](&symfather, symhead, lex);
+    symbol_stack.push(symfather);
     // always goto after reduce
     shift_goto();
 }
 
 void LR1Analyser::accept() {
-
+    printf(FONT_GREEN "Accept a sentence.\n"RESET_STYLE);
 }
 
 void LR1Analyser::error_handle() {

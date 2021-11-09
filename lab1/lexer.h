@@ -19,10 +19,18 @@ using namespace std;
 #define CODE_LIST_FILEPATH "code_list.txt"
 #define KEYWORD_SET_FILEPATH "keyword_set.txt"
 
+typedef struct Attr{
+    const char *attr_name;
+    void *val;
+    struct Attr *next;
+}Attr;
+
 typedef struct symbol {
     char *name;
+    int category;
     int type;
     int offset;
+    Attr *attr;
 }symbol;
 
 typedef struct token {
