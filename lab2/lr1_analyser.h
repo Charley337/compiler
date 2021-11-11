@@ -49,7 +49,7 @@ typedef struct SymNode {
 }SymNode;
 
 typedef struct SymList {
-    SymNode val;
+    SymNode sym;
     struct SymList *next;
 }SymList;
 

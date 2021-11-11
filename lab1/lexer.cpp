@@ -1,6 +1,8 @@
 #include "lexer.h"
 
 Lexer::Lexer(char *src) {
+    offset = 0;
+    init_sizeof_type();
     // 初始化编码表
     init_code_list();
     // 初始化关键字集合
@@ -9,6 +11,15 @@ Lexer::Lexer(char *src) {
     read_src_file(src);
     // 分析获取token表
     init_token_list();
+}
+
+void Lexer::init_sizeof_type() {
+    sizeof_type["int"] = sizeof(int);
+    sizeof_type["float"] = sizeof(float);
+    sizeof_type["bool"] = sizeof(bool);
+    sizeof_type["char"] = sizeof(char);
+    sizeof_type["long"] = sizeof(long);
+    sizeof_type["double"] = sizeof(double);
 }
 
 void Lexer::init_code_list() {

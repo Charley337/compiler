@@ -343,6 +343,7 @@ void LR1Analyser::shift_action() {
             symnodetemp.attr->attr_name = "name";
             symnodetemp.attr->val = (char*)malloc(sizeof(char) * (strlen(token_it->value) + 1));
             strcpy((char*)symnodetemp.attr->val, token_it->value);
+            symnodetemp.attr->next = NULL;
             symbol_stack.push(symnodetemp);
         }
         else if (type == AT_TYPE_REDUCE) {      // 如果是reduce，那么归约
@@ -405,7 +406,7 @@ void LR1Analyser::reduce(int val) {
             pb = pf;
             // 符号串
             SymList *symlist_temp = (SymList*)malloc(sizeof(SymList));
-            symlist_temp->val = symbol_stack.top();
+            symlist_temp->sym = symbol_stack.top();
             symlist_temp->next = symhead;
             symhead = symlist_temp;
             state_stack.pop();
@@ -422,6 +423,7 @@ void LR1Analyser::reduce(int val) {
     memcpy(tk, gram, sizeof(char) * (pf));
     tk[pf] = '\0';
     symfather.id = lex->code_list.find(tk)->second;
+    symfather.attr = NULL;
     proc_list[val](&symfather, symhead, lex);
     symbol_stack.push(symfather);
     // always goto after reduce

@@ -61,7 +61,16 @@ public:
     // 符号表
     map<string, symbol> symbol_table;
 
+    // 偏移地址
+    int offset;
+
+    // 变量类型占的内存大小
+    map<string, int> sizeof_type;
+
     Lexer(char *src);
+
+    // 初始化 sizeof_type
+    void init_sizeof_type();
 
     // 创建编码表（哈希表）
     void init_code_list();

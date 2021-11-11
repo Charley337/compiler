@@ -4,6 +4,7 @@
 #include "lr1_analyser.h"
 
 void free_symlist(SymList *symhead);
+void* get_attr_val(SymNode *sym, const char* attr_name);
 
 void proc_grammar_1(SymNode *symfather, SymList *symhead, Lexer *lex);
 void proc_grammar_2(SymNode *symfather, SymList *symhead, Lexer *lex);

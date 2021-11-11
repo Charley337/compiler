@@ -1,7 +1,7 @@
 int result;
-int a;
-int b;
-int c;
+int a, b, c;
+float f;
+bool boolean;
 a = 8;
 b = 5;
 c = 3;
