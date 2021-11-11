@@ -1,6 +1,7 @@
 #include "lexer.h"
 #include "lr1_analyser.h"
 
+void show_intermediate_language();
 // 显示编码表
 void show_code_list(Lexer *le);
 void show_code_reverse(Lexer *le);
@@ -38,14 +39,24 @@ int main(int argc, char **argv) {
     printf(FONT_BLUE FONT_HIGHLIGHT"LR1 analyser begin...\n"RESET_STYLE);
     LR1Analyser lr1analyser(&lex);
     lr1analyser.lr1_start();
-
-    show_symbol_table(&lex);
+    show_intermediate_language();
 
     // 程序结束
     printf(FONT_BLUE FONT_HIGHLIGHT"ending\n"RESET_STYLE);
     return 0;
 }
 
+void show_intermediate_language() {
+    FILE *fp = fopen(IL_FILEPATH, "r");
+    if (fp == NULL) {
+        printf(FONT_RED FONT_HIGHLIGHT"fail to read intermediate_language.txt\n"RESET_STYLE);
+        exit(-1);
+    }
+    char ch;
+    while ((ch = fgetc(fp)) != EOF) {
+        printf("%c", ch);
+    }
+}
 
 void show_code_list(Lexer *le) {
     for (map<string, int>::iterator it = le->code_list.begin(); it != le->code_list.end(); it++) {
