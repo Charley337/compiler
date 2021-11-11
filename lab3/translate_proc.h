@@ -5,6 +5,7 @@
 
 void free_symlist(SymList *symhead);
 void* get_attr_val(SymNode *sym, const char* attr_name);
+char* newtemp();
 
 void proc_grammar_1(SymNode *symfather, SymList *symhead, Lexer *lex);
 void proc_grammar_2(SymNode *symfather, SymList *symhead, Lexer *lex);

@@ -314,11 +314,17 @@ void LR1Analyser::grammar_list_init() {
 
 void LR1Analyser::lr1_start() {
     // always action, until accept
+    lex->il_fp = fopen(IL_FILEPATH, "w");
+    if (lex->il_fp == NULL) {
+        printf(FONT_RED FONT_HIGHLIGHT"fail to open intermediate_language.txt\n"RESET_STYLE);
+        exit(-1);
+    }
     while (token_it != lex->token_list.end()) {
         // printf("(%d, %s)\n", token_it->typecode, token_it->value);
         shift_action();
         token_it++;
     }
+    fclose(lex->il_fp);
     printf(FONT_GREEN"lr1 grammar analyse pass!\n"RESET_STYLE);
 }
 

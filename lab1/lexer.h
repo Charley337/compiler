@@ -18,6 +18,7 @@ using namespace std;
 
 #define CODE_LIST_FILEPATH "code_list.txt"
 #define KEYWORD_SET_FILEPATH "keyword_set.txt"
+#define IL_FILEPATH "intermediate_language.txt"
 
 typedef struct Attr{
     const char *attr_name;
@@ -66,6 +67,9 @@ public:
 
     // 变量类型占的内存大小
     map<string, int> sizeof_type;
+
+    // 三地址码输出文件指针
+    FILE *il_fp;
 
     Lexer(char *src);
 

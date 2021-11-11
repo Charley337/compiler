@@ -34,6 +34,17 @@ void* get_attr_val(SymNode *sym, const char* attr_name) {
     return NULL;
 }
 
+char* newtemp() {
+    static int temp_num = 1;
+    static char str_temp[16];
+    str_temp[0] = 't';
+    sprintf(str_temp + 1, "%d", temp_num);
+    temp_num++;
+    char *res = (char*)malloc(sizeof(char) * (strlen(str_temp) + 1));
+    strcpy(res, str_temp);
+    return res;
+}
+
 void proc_grammar_1(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 1\n");
     free_symlist(symhead);
@@ -61,7 +72,7 @@ void proc_grammar_4(SymNode *symfather, SymList *symhead, Lexer *lex) {
         if (strcmp(pa->attr_name, "name") == 0) {
             ite = lex->symbol_table.find((char*)pa->val);
             if (ite == lex->symbol_table.end()) {
-                printf(FONT_RED FONT_HIGHLIGHT"val should be defined before using!\n"RESET_STYLE);
+                printf(FONT_RED FONT_HIGHLIGHT"cannot find val in symbol_table!\n"RESET_STYLE);
                 exit(-1);
             }
             ite->second.type = type_id;
@@ -137,60 +148,142 @@ void proc_grammar_10(SymNode *symfather, SymList *symhead, Lexer *lex) {
 
 void proc_grammar_11(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 11\n");
+    map<string, symbol>::iterator ite = lex->symbol_table.find((char*)symhead->sym.attr->val);
+    if (ite == lex->symbol_table.end()) {
+        printf(FONT_RED FONT_HIGHLIGHT"cannot find val in symbol_table!\n"RESET_STYLE);
+        exit(-1);
+    }
+    if (ite->second.type == -1) {
+        printf(FONT_RED FONT_HIGHLIGHT"val should be defined before using!\n"RESET_STYLE);
+        exit(-1);
+    }
+    // 输出三地址码
+    fprintf(lex->il_fp, "%s=%s\n", (char*)symhead->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
     free_symlist(symhead);
 }
 
 void proc_grammar_12(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 12\n");
+    symfather->attr = (Attr*)malloc(sizeof(Attr));
+    symfather->attr->attr_name = "addr";
+    symfather->attr->val = newtemp();
+    symfather->attr->next = NULL;
+    // output intermediate language
+    // printf("%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
+    fprintf(lex->il_fp, "%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
     free_symlist(symhead);
 }
 
 void proc_grammar_13(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 13\n");
+    symfather->attr = (Attr*)malloc(sizeof(Attr));
+    symfather->attr->attr_name = "addr";
+    symfather->attr->val = newtemp();
+    symfather->attr->next = NULL;
+    // output intermediate language
+    // printf("%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
+    fprintf(lex->il_fp, "%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
     free_symlist(symhead);
 }
 
 void proc_grammar_14(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 14\n");
+    symfather->attr = (Attr*)malloc(sizeof(Attr));
+    symfather->attr->attr_name = "addr";
+    symfather->attr->val = (char*)malloc(sizeof(char) * (strlen((char*)symhead->sym.attr->val) + 1));
+    strcpy((char*)symfather->attr->val, (char*)symhead->sym.attr->val);
+    symfather->attr->next = NULL;
     free_symlist(symhead);
 }
 
 void proc_grammar_15(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 15\n");
+    symfather->attr = (Attr*)malloc(sizeof(Attr));
+    symfather->attr->attr_name = "addr";
+    symfather->attr->val = newtemp();
+    symfather->attr->next = NULL;
+    // output intermediate language
+    // printf("%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
+    fprintf(lex->il_fp, "%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
     free_symlist(symhead);
 }
 
 void proc_grammar_16(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 16\n");
+    symfather->attr = (Attr*)malloc(sizeof(Attr));
+    symfather->attr->attr_name = "addr";
+    symfather->attr->val = newtemp();
+    symfather->attr->next = NULL;
+    // output intermediate language
+    // printf("%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
+    fprintf(lex->il_fp, "%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
     free_symlist(symhead);
 }
 
 void proc_grammar_17(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 17\n");
+    symfather->attr = (Attr*)malloc(sizeof(Attr));
+    symfather->attr->attr_name = "addr";
+    symfather->attr->val = newtemp();
+    symfather->attr->next = NULL;
+    // output intermediate language
+    // printf("%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
+    fprintf(lex->il_fp, "%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
     free_symlist(symhead);
 }
 
 void proc_grammar_18(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 18\n");
+    symfather->attr = (Attr*)malloc(sizeof(Attr));
+    symfather->attr->attr_name = "addr";
+    symfather->attr->val = (char*)malloc(sizeof(char) * (strlen((char*)symhead->sym.attr->val) + 1));
+    strcpy((char*)symfather->attr->val, (char*)symhead->sym.attr->val);
+    symfather->attr->next = NULL;
     free_symlist(symhead);
 }
 
 void proc_grammar_19(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 19\n");
+    symfather->attr = (Attr*)malloc(sizeof(Attr));
+    symfather->attr->attr_name = "addr";
+    symfather->attr->val = (char*)malloc(sizeof(char) * (strlen((char*)symhead->next->sym.attr->val) + 1));
+    strcpy((char*)symfather->attr->val, (char*)symhead->next->sym.attr->val);
+    symfather->attr->next = NULL;
     free_symlist(symhead);
 }
 
 void proc_grammar_20(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 20\n");
+    symfather->attr = (Attr*)malloc(sizeof(Attr));
+    symfather->attr->attr_name = "addr";
+    map<string, symbol>::iterator ite = lex->symbol_table.find((char*)symhead->sym.attr->val);
+    if (ite == lex->symbol_table.end()) {
+        printf(FONT_RED FONT_HIGHLIGHT"cannot find val in symbol_table!\n"RESET_STYLE);
+        exit(-1);
+    }
+    if (ite->second.type == -1) {
+        printf(FONT_RED FONT_HIGHLIGHT"val should be defined before using!\n"RESET_STYLE);
+        exit(-1);
+    }
+    symfather->attr->val = (char*)malloc(sizeof(char) * (strlen(ite->second.name) + 1));
+    strcpy((char*)symfather->attr->val, ite->second.name);
+    symfather->attr->next = NULL;
     free_symlist(symhead);
 }
 
 void proc_grammar_21(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 21\n");
+    symfather->attr = (Attr*)malloc(sizeof(Attr));
+    symfather->attr->attr_name = "addr";
+    symfather->attr->val = (char*)malloc(sizeof(char) * (strlen((char*)symhead->sym.attr->val) + 1));
+    strcpy((char*)symfather->attr->val, (char*)symhead->sym.attr->val);
+    symfather->attr->next = NULL;
     free_symlist(symhead);
 }
 
 void proc_grammar_22(SymNode *symfather, SymList *symhead, Lexer *lex) {
     // printf("hello 22\n");
+    printf("this version do not support const string!\n");
+    exit(-1);
     free_symlist(symhead);
 }
