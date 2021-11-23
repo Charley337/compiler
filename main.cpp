@@ -3,6 +3,8 @@
 #include "assembly_generator.h"
 
 void show_intermediate_language();
+void show_lex_intermediates(Lexer *le);
+void show_asm_code();
 // 显示编码表
 void show_code_list(Lexer *le);
 void show_code_reverse(Lexer *le);
@@ -20,7 +22,6 @@ void show_grammar_list(LR1Analyser *lr);
 void show_state_stack(LR1Analyser *lr);
 // 显示符号栈
 void show_symbol_stack(LR1Analyser *lr);
-void show_lex_intermediates(Lexer *le);
 
 
 int main(int argc, char **argv) {
@@ -47,10 +48,24 @@ int main(int argc, char **argv) {
     printf(FONT_BLUE FONT_HIGHLIGHT"Assembly Generator begin...\n"RESET_STYLE);
     Assembly assm(&lex.code_list, &lex.code_reverse, &lex.symbol_table, &lex.intermediates);
     assm.assembly_generate();
+    show_asm_code();
 
     // 程序结束
     printf(FONT_BLUE FONT_HIGHLIGHT"ending\n"RESET_STYLE);
     return 0;
+}
+
+void show_asm_code() {
+    FILE *fp = fopen(ASM_FILEPATH, "r");
+    if (fp == NULL) {
+        printf(FONT_RED FONT_HIGHLIGHT"fail to read assembly.asm\n"RESET_STYLE);
+        exit(-1);
+    }
+    char ch;
+    while ((ch = fgetc(fp)) != EOF) {
+        printf("%c", ch);
+    }
+    fclose(fp);
 }
 
 void show_lex_intermediates(Lexer *le) {
@@ -74,6 +89,7 @@ void show_intermediate_language() {
     while ((ch = fgetc(fp)) != EOF) {
         printf("%c", ch);
     }
+    fclose(fp);
 }
 
 void show_code_list(Lexer *le) {
