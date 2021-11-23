@@ -158,6 +158,17 @@ void proc_grammar_11(SymNode *symfather, SymList *symhead, Lexer *lex) {
         exit(-1);
     }
     // 输出三地址码
+    ILitem iltemp;
+    iltemp.op = (char*)malloc(sizeof(char) * (strlen("assign") + 1));
+    sprintf(iltemp.op, "assign");
+    iltemp.arg1 = (char*)malloc(sizeof(char) * (strlen((char*)symhead->next->next->sym.attr->val) + 1));
+    sprintf(iltemp.arg1, "%s", (char*)symhead->next->next->sym.attr->val);
+    iltemp.arg2 = NULL;
+    iltemp.result = (char*)malloc(sizeof(char) * (strlen((char*)symhead->sym.attr->val) + 1));
+    sprintf(iltemp.result, "%s", (char*)symhead->sym.attr->val);
+    lex->intermediates.push_back(iltemp);
+
+    // 输出到文件
     fprintf(lex->il_fp, "%s=%s\n", (char*)symhead->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
     free_symlist(symhead);
 }
@@ -168,8 +179,28 @@ void proc_grammar_12(SymNode *symfather, SymList *symhead, Lexer *lex) {
     symfather->attr->attr_name = "addr";
     symfather->attr->val = newtemp();
     symfather->attr->next = NULL;
+
+    lex->symboltable_insert((char*)symfather->attr->val);
+    int sizeof_type = sizeof(int);
+    map<string, symbol>::iterator ite = lex->symbol_table.find((char*)symfather->attr->val);
+    ite->second.category = lex->code_list.find("temp_name")->second;
+    ite->second.type = lex->code_list.find("int")->second;
+    ite->second.offset = lex->offset;
+    lex->offset += sizeof_type;
+
     // output intermediate language
     // printf("%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
+    ILitem iltemp;
+    iltemp.op = (char*)malloc(sizeof(char) * (strlen((char*)symhead->next->sym.attr->val) + 1));
+    sprintf(iltemp.op, "%s", (char*)symhead->next->sym.attr->val);
+    iltemp.arg1 = (char*)malloc(sizeof(char) * (strlen((char*)symhead->sym.attr->val) + 1));
+    sprintf(iltemp.arg1, "%s", (char*)symhead->sym.attr->val);
+    iltemp.arg2 = (char*)malloc(sizeof(char) * (strlen((char*)symhead->next->next->sym.attr->val) + 1));
+    sprintf(iltemp.arg2, "%s", (char*)symhead->next->next->sym.attr->val);
+    iltemp.result = (char*)malloc(sizeof(char) * (strlen((char*)symfather->attr->val) + 1));
+    sprintf(iltemp.result, "%s", (char*)symfather->attr->val);
+    lex->intermediates.push_back(iltemp);
+
     fprintf(lex->il_fp, "%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
     free_symlist(symhead);
 }
@@ -180,8 +211,28 @@ void proc_grammar_13(SymNode *symfather, SymList *symhead, Lexer *lex) {
     symfather->attr->attr_name = "addr";
     symfather->attr->val = newtemp();
     symfather->attr->next = NULL;
+
+    lex->symboltable_insert((char*)symfather->attr->val);
+    int sizeof_type = sizeof(int);
+    map<string, symbol>::iterator ite = lex->symbol_table.find((char*)symfather->attr->val);
+    ite->second.category = lex->code_list.find("temp_name")->second;
+    ite->second.type = lex->code_list.find("int")->second;
+    ite->second.offset = lex->offset;
+    lex->offset += sizeof_type;
+
     // output intermediate language
     // printf("%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
+    ILitem iltemp;
+    iltemp.op = (char*)malloc(sizeof(char) * (strlen((char*)symhead->next->sym.attr->val) + 1));
+    sprintf(iltemp.op, "%s", (char*)symhead->next->sym.attr->val);
+    iltemp.arg1 = (char*)malloc(sizeof(char) * (strlen((char*)symhead->sym.attr->val) + 1));
+    sprintf(iltemp.arg1, "%s", (char*)symhead->sym.attr->val);
+    iltemp.arg2 = (char*)malloc(sizeof(char) * (strlen((char*)symhead->next->next->sym.attr->val) + 1));
+    sprintf(iltemp.arg2, "%s", (char*)symhead->next->next->sym.attr->val);
+    iltemp.result = (char*)malloc(sizeof(char) * (strlen((char*)symfather->attr->val) + 1));
+    sprintf(iltemp.result, "%s", (char*)symfather->attr->val);
+    lex->intermediates.push_back(iltemp);
+
     fprintf(lex->il_fp, "%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
     free_symlist(symhead);
 }
@@ -202,8 +253,28 @@ void proc_grammar_15(SymNode *symfather, SymList *symhead, Lexer *lex) {
     symfather->attr->attr_name = "addr";
     symfather->attr->val = newtemp();
     symfather->attr->next = NULL;
+
+    lex->symboltable_insert((char*)symfather->attr->val);
+    int sizeof_type = sizeof(int);
+    map<string, symbol>::iterator ite = lex->symbol_table.find((char*)symfather->attr->val);
+    ite->second.category = lex->code_list.find("temp_name")->second;
+    ite->second.type = lex->code_list.find("int")->second;
+    ite->second.offset = lex->offset;
+    lex->offset += sizeof_type;
+
     // output intermediate language
     // printf("%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
+    ILitem iltemp;
+    iltemp.op = (char*)malloc(sizeof(char) * (strlen((char*)symhead->next->sym.attr->val) + 1));
+    sprintf(iltemp.op, "%s", (char*)symhead->next->sym.attr->val);
+    iltemp.arg1 = (char*)malloc(sizeof(char) * (strlen((char*)symhead->sym.attr->val) + 1));
+    sprintf(iltemp.arg1, "%s", (char*)symhead->sym.attr->val);
+    iltemp.arg2 = (char*)malloc(sizeof(char) * (strlen((char*)symhead->next->next->sym.attr->val) + 1));
+    sprintf(iltemp.arg2, "%s", (char*)symhead->next->next->sym.attr->val);
+    iltemp.result = (char*)malloc(sizeof(char) * (strlen((char*)symfather->attr->val) + 1));
+    sprintf(iltemp.result, "%s", (char*)symfather->attr->val);
+    lex->intermediates.push_back(iltemp);
+    
     fprintf(lex->il_fp, "%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
     free_symlist(symhead);
 }
@@ -214,8 +285,28 @@ void proc_grammar_16(SymNode *symfather, SymList *symhead, Lexer *lex) {
     symfather->attr->attr_name = "addr";
     symfather->attr->val = newtemp();
     symfather->attr->next = NULL;
+
+    lex->symboltable_insert((char*)symfather->attr->val);
+    int sizeof_type = sizeof(int);
+    map<string, symbol>::iterator ite = lex->symbol_table.find((char*)symfather->attr->val);
+    ite->second.category = lex->code_list.find("temp_name")->second;
+    ite->second.type = lex->code_list.find("int")->second;
+    ite->second.offset = lex->offset;
+    lex->offset += sizeof_type;
+
     // output intermediate language
     // printf("%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
+    ILitem iltemp;
+    iltemp.op = (char*)malloc(sizeof(char) * (strlen((char*)symhead->next->sym.attr->val) + 1));
+    sprintf(iltemp.op, "%s", (char*)symhead->next->sym.attr->val);
+    iltemp.arg1 = (char*)malloc(sizeof(char) * (strlen((char*)symhead->sym.attr->val) + 1));
+    sprintf(iltemp.arg1, "%s", (char*)symhead->sym.attr->val);
+    iltemp.arg2 = (char*)malloc(sizeof(char) * (strlen((char*)symhead->next->next->sym.attr->val) + 1));
+    sprintf(iltemp.arg2, "%s", (char*)symhead->next->next->sym.attr->val);
+    iltemp.result = (char*)malloc(sizeof(char) * (strlen((char*)symfather->attr->val) + 1));
+    sprintf(iltemp.result, "%s", (char*)symfather->attr->val);
+    lex->intermediates.push_back(iltemp);
+
     fprintf(lex->il_fp, "%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
     free_symlist(symhead);
 }
@@ -226,8 +317,28 @@ void proc_grammar_17(SymNode *symfather, SymList *symhead, Lexer *lex) {
     symfather->attr->attr_name = "addr";
     symfather->attr->val = newtemp();
     symfather->attr->next = NULL;
+
+    lex->symboltable_insert((char*)symfather->attr->val);
+    int sizeof_type = sizeof(int);
+    map<string, symbol>::iterator ite = lex->symbol_table.find((char*)symfather->attr->val);
+    ite->second.category = lex->code_list.find("temp_name")->second;
+    ite->second.type = lex->code_list.find("int")->second;
+    ite->second.offset = lex->offset;
+    lex->offset += sizeof_type;
+
     // output intermediate language
     // printf("%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
+    ILitem iltemp;
+    iltemp.op = (char*)malloc(sizeof(char) * (strlen((char*)symhead->next->sym.attr->val) + 1));
+    sprintf(iltemp.op, "%s", (char*)symhead->next->sym.attr->val);
+    iltemp.arg1 = (char*)malloc(sizeof(char) * (strlen((char*)symhead->sym.attr->val) + 1));
+    sprintf(iltemp.arg1, "%s", (char*)symhead->sym.attr->val);
+    iltemp.arg2 = (char*)malloc(sizeof(char) * (strlen((char*)symhead->next->next->sym.attr->val) + 1));
+    sprintf(iltemp.arg2, "%s", (char*)symhead->next->next->sym.attr->val);
+    iltemp.result = (char*)malloc(sizeof(char) * (strlen((char*)symfather->attr->val) + 1));
+    sprintf(iltemp.result, "%s", (char*)symfather->attr->val);
+    lex->intermediates.push_back(iltemp);
+    
     fprintf(lex->il_fp, "%s=%s%s%s\n", (char*)symfather->attr->val, (char*)symhead->sym.attr->val, (char*)symhead->next->sym.attr->val, (char*)symhead->next->next->sym.attr->val);
     free_symlist(symhead);
 }

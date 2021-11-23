@@ -39,6 +39,13 @@ typedef struct token {
     char *value;
 }token;
 
+typedef struct ILitem {
+    char *op;
+    char *arg1;
+    char *arg2;
+    char *result;
+} ILitem;
+
 class Lexer {
 public:
     // 编码表（哈希表）
@@ -61,6 +68,9 @@ public:
 
     // 符号表
     map<string, symbol> symbol_table;
+
+    // 中间代码表
+    vector<ILitem> intermediates;
 
     // 偏移地址
     int offset;

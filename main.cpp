@@ -1,5 +1,6 @@
 #include "lexer.h"
 #include "lr1_analyser.h"
+#include "assembly_generator.h"
 
 void show_intermediate_language();
 // 显示编码表
@@ -19,6 +20,7 @@ void show_grammar_list(LR1Analyser *lr);
 void show_state_stack(LR1Analyser *lr);
 // 显示符号栈
 void show_symbol_stack(LR1Analyser *lr);
+void show_lex_intermediates(Lexer *le);
 
 
 int main(int argc, char **argv) {
@@ -40,10 +42,30 @@ int main(int argc, char **argv) {
     LR1Analyser lr1analyser(&lex);
     lr1analyser.lr1_start();
     show_intermediate_language();
+    printf("\n");
+    show_symbol_table(&lex);
+    printf("\n");
+    show_lex_intermediates(&lex);
+
+    // 目标代码生成器
+    printf(FONT_BLUE FONT_HIGHLIGHT"Assembly Generator begin...\n"RESET_STYLE);
+    Assembly assm(&lex.symbol_table, &lex.intermediates);
+    assm.assembly_generate();
 
     // 程序结束
     printf(FONT_BLUE FONT_HIGHLIGHT"ending\n"RESET_STYLE);
     return 0;
+}
+
+void show_lex_intermediates(Lexer *le) {
+    for (ILitem it: le->intermediates) {
+        if (strcmp(it.op, "assign") == 0) {
+            printf("%s=%s\n", it.result, it.arg1);
+        }
+        else {
+            printf("%s=%s%s%s\n", it.result, it.arg1, it.op, it.arg2);
+        }
+    }
 }
 
 void show_intermediate_language() {
