@@ -27,6 +27,10 @@ public:
 
     regval regs[REG_NUM];
 
+    map<string, int> opcodes;
+
+    void (**assembly_calls)(Assembly*, ILitem);
+
     FILE *fp_asm;
 
     Assembly(map<string, int> *codelist, map<int, string> *codereverse, map<string, symbol> *symtab, vector<ILitem> *interm);
@@ -37,6 +41,10 @@ public:
 
     void init_regs();
 
+    void init_opcodes();
+
+    void init_assembly_calls();
+
     int set_reg(int idx, char *name);
 
     int save_reg(int idx);
@@ -44,6 +52,15 @@ public:
     int free_reg(int idx);
 
     int getreg();
+    int getreg(int busy);
 };
+
+
+void assembly_function_0(Assembly* assm, ILitem it);
+void assembly_function_1(Assembly* assm, ILitem it);
+void assembly_function_2(Assembly* assm, ILitem it);
+void assembly_function_3(Assembly* assm, ILitem it);
+void assembly_function_4(Assembly* assm, ILitem it);
+
 
 #endif

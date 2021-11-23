@@ -1,4 +1,5 @@
 int result;
+int ans;
 int a, b, c;
 float f;
 bool boolean;
@@ -6,3 +7,4 @@ a = 8;
 b = 5;
 c = 3;
 result = a * b + ( a - b ) + c;
+ans = (a - b) + (a - c) + (a - c);
