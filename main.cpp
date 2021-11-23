@@ -42,14 +42,10 @@ int main(int argc, char **argv) {
     LR1Analyser lr1analyser(&lex);
     lr1analyser.lr1_start();
     show_intermediate_language();
-    printf("\n");
-    show_symbol_table(&lex);
-    printf("\n");
-    show_lex_intermediates(&lex);
 
     // 目标代码生成器
     printf(FONT_BLUE FONT_HIGHLIGHT"Assembly Generator begin...\n"RESET_STYLE);
-    Assembly assm(&lex.symbol_table, &lex.intermediates);
+    Assembly assm(&lex.code_list, &lex.code_reverse, &lex.symbol_table, &lex.intermediates);
     assm.assembly_generate();
 
     // 程序结束
